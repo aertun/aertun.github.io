@@ -1,0 +1,26 @@
+<!--
+title: AI agents over MCP
+short: AI agents (MCP)
+seo: Vaigil MCP server: AI agents that read and propose
+description: Connect an AI agent to Vaigil over the Model Context Protocol: eight operations behind four tools, to read findings and propose decisions, never to act.
+lead: Eight operations behind four tools, for an agent that reads and proposes.
+icon: hub
+updated: 2026-10-23
+-->
+<pre><code>vaigil mcp --list
+VAIGIL_TOKEN=... vaigil mcp</code></pre>
+<p>The agent interface speaks MCP over standard input and output, as the person whose token it carries, with that person's access and no more. An agent loads only the operations it searches for.</p>
+<table>
+<thead><tr><th>Operation</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td><code>list_findings</code></td><td>the finding queue, most urgent first</td></tr>
+<tr><td><code>read_finding</code></td><td>one finding: why it ranks, its evidence, and what has been decided</td></tr>
+<tr><td><code>propose_finding_decision</code></td><td>suggest a decision on a finding for a person to make</td></tr>
+<tr><td><code>incident_status</code></td><td>open incidents: which clocks are running, late or not started</td></tr>
+<tr><td><code>detection_stats</code></td><td>what each rule has been worth, and what the numbers suggest changing</td></tr>
+<tr><td><code>vuln_plan</code></td><td>the smallest upgrades that clear the most vulnerability risk</td></tr>
+<tr><td><code>estate_summary</code></td><td>how many people are at each level of risk, as numbers, never names</td></tr>
+<tr><td><code>find</code></td><td>find a screen by words</td></tr>
+</tbody>
+</table>
+<p>An agent reading events is reading text an attacker chose, so nothing on this interface changes who may do what, approves an action, or reaches another platform.</p>

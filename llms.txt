@@ -1,0 +1,49 @@
+# Vaigil
+
+> Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.
+
+Vaigil is one Go binary with no third-party dependencies, licensed under Apache-2.0. Source: https://github.com/Vaigil/Vaigil
+
+## Get started
+
+- [Get started](https://vaigil.github.io/start/): Build Vaigil, create a store and its first administrator, sign in with a passkey, then connect a source, install detections and decide who else may do what.
+- [Install and run Vaigil](https://vaigil.github.io/install/): Build Vaigil from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
+- [Glossary](https://vaigil.github.io/concepts/): Short definitions of the words the Vaigil manual and console use: sources, events, detections, findings, cases, regimes, playbooks, actions and the audit log.
+
+## Operations
+
+- [Approvals](https://vaigil.github.io/approvals/): One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.
+- [Findings and the AI analyst](https://vaigil.github.io/findings/): One queue of security findings ranked by risk, decisions kept and replayable, and an AI analyst that suggests a verdict from counts without ever recording one.
+- [Cases, incidents and notification clocks](https://vaigil.github.io/cases/): Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.
+
+## Investigation
+
+- [Events and hunting](https://vaigil.github.io/events/): Every event mapped to one shape and kept append-only, with retention and legal holds, identity links across platforms, and a hunt that shows what is rare.
+- [Threat intelligence and indicators](https://vaigil.github.io/intelligence/): Import indicators of compromise from STIX 2.1 bundles or plain lists, add them one at a time, and see which events and findings they match.
+
+## Detection
+
+- [Detection rules, Sigma and correlations](https://vaigil.github.io/detections/): Write detection rules with fixtures, import Sigma, trial a rule before it reaches the queue, correlate across platforms, and suppress noise with an end date.
+- [Automations](https://vaigil.github.io/automations/): Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.
+- [Connectors, log sources and feeds](https://vaigil.github.io/connectors/): Read Okta, Entra ID, GitHub, KnowBe4, Vanta and more through their APIs, map logs from 17 platforms to one shape, and receive SSF, CAEP and webhook feeds.
+
+## Exposure
+
+- [Vulnerability management](https://vaigil.github.io/vulnerabilities/): Rank vulnerabilities with CISA KEV and EPSS, decide them with SSVC, publish OpenVEX, scan SBOMs against OSV, import SARIF, and plan upgrades that clear most risk.
+- [Estate, workforce risk and reminders](https://vaigil.github.io/workforce/): Join who works here with their devices, training and accounts across your tools, see where coverage is missing, send reminders, and review vendors and access.
+
+## Administration
+
+- [People and access](https://vaigil.github.io/people/): Grant roles and jobs on a path, deny what a broader grant would allow, explain any decision, provision people with SCIM, and issue tokens that end.
+- [Roles and separation of duties](https://vaigil.github.io/roles/): Four roles in a ladder (viewer, analyst, responder, admin), three jobs beside it (engineer, vuln-manager, auditor), and duties kept apart so nobody acts alone.
+- [Single sign-on](https://vaigil.github.io/sso/): Sign in through OpenID Connect or SAML. Single sign-on counts as two factors only when the identity provider says it used them; otherwise a passkey is asked for.
+- [Passkeys, enrolment and recovery](https://vaigil.github.io/passkeys/): Sign in with a passkey that checks it is you, add one through a one-time enrolment link, lock out failed sign-ins by place, and recover without a password.
+- [Settings](https://vaigil.github.io/settings/): Every Vaigil setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and hard bounds no reason steps past.
+- [The audit log](https://vaigil.github.io/audit/): An append-only audit log: a hash chain, a Merkle tree, heads signed with Ed25519 and ML-DSA, anchored to Bitcoin, written by its own process and streamed to a SIEM.
+- [How Vaigil defends itself](https://vaigil.github.io/security/): What Vaigil may connect to and why, credentials sealed in its vault, a separate log writer, two factors for everybody, session limits and an AI that only suggests.
+
+## Reference
+
+- [The command line](https://vaigil.github.io/cli/): Every Vaigil command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root for the store and --token for identity.
+- [AI agents over MCP](https://vaigil.github.io/mcp/): Connect an AI agent to Vaigil over the Model Context Protocol: eight operations behind four tools, to read findings and propose decisions, never to act.
+- [Licence: Apache-2.0](https://vaigil.github.io/licence/): Vaigil is open source under the Apache License 2.0. Use it, change it, embed it in your own product and sell it, with no licence key and nothing held back.

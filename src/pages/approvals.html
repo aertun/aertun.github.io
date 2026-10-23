@@ -1,0 +1,21 @@
+<!--
+title: Approvals
+short: Approvals
+seo: Vaigil approvals: what is waiting for a second person
+description: One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.
+lead: Everything waiting for you to decide, in one place.
+icon: approvals
+screens: Approvals
+updated: 2026-10-23
+-->
+<p>Three things wait for a person, and each is decided by somebody other than whoever asked for it:</p>
+<ul>
+<li><strong>An action on another platform</strong>, asked for on a case.</li>
+<li><strong>A run an automation held</strong>, because its mode is ask.</li>
+<li><strong>A privileged change</strong>: making somebody an administrator, issuing an administrator's token, weakening a setting, lowering how many approvals a change needs, or moving the audit log.</li>
+</ul>
+<pre><code>vaigil approvals
+vaigil incident act-approve ID N
+vaigil automate approve RUN
+vaigil pending approve ID</code></pre>
+<p>What was asked for, by whom and why is shown before anybody decides, and the decision is in the audit log. A privileged change asked for by the only administrator is applied as they make it, and the record says it was approved alone.</p>

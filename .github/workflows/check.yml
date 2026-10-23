@@ -1,0 +1,41 @@
+name: check
+
+# The manual is the target of every Help link in the Vaigil console, so the
+# thing worth checking on every push is that each guide the application links
+# to exists, that no link inside the manual lands nowhere, that every picture is
+# in the repository, and that the committed pages are what src/ builds.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Read-only: this checks files and writes nothing.
+permissions:
+  contents: read
+
+jobs:
+  # Two jobs, named for the two promises branch protection asks for. Both run
+  # the generator's check, which builds every page in memory and fails on any
+  # difference from what is committed.
+  anchors:
+    runs-on: ubuntu-latest
+    steps:
+      # Pinned by commit, not by tag: a tag is a mutable pointer in somebody
+      # else's repository. The same commits as Vaigil's own workflows.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: Every guide the Vaigil console links to is a page here
+        run: go run ./gen -check
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: No link lands nowhere, every picture exists, and the pages are what src/ builds
+        run: go run ./gen -check

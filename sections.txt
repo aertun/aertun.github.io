@@ -1,0 +1,29 @@
+# Every guide the Vaigil console links to: docSections in internal/admin/nav.go
+# in the Vaigil repository. A Help link is DocsBase + slug + "/", so each line
+# must be a page here; `go run ./gen -check` fails the build if one is not.
+#
+# Renaming a guide means changing it in both repositories, in the same change
+# if you can.
+
+approvals
+audit
+automations
+cases
+cli
+connectors
+detections
+events
+findings
+install
+intelligence
+licence
+mcp
+passkeys
+people
+roles
+security
+settings
+sso
+start
+vulnerabilities
+workforce

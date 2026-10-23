@@ -1,0 +1,27 @@
+<!--
+title: People and access
+short: People
+seo: Vaigil access control: grants, paths and provisioning
+description: Grant roles and jobs on a path, deny what a broader grant would allow, explain any decision, provision people with SCIM, and issue tokens that end.
+lead: Who may do what, granted on a path, ending when it should.
+icon: people
+screens: People, Provisioning
+updated: 2026-10-23
+-->
+<pre><code>vaigil auth grant sam@example.com analyst
+vaigil auth grant lee@example.com engineer --for 30d
+vaigil auth deny sam@example.com responder --on /security/vulns
+vaigil auth explain sam@example.com respond
+vaigil auth list</code></pre>
+<p><code>explain</code> walks every binding and says which one decided, and why the others did not. See <a href="/roles/">Roles</a> for what each role may do.</p>
+<h2 id="provisioning">Provisioning with SCIM</h2>
+<pre><code>vaigil scim token
+vaigil scim map security-analysts analyst
+vaigil scim status</code></pre>
+<p>The identity provider adds, changes and removes people; a group is mapped to a role or a job.</p>
+<h2 id="tokens">Tokens</h2>
+<pre><code>vaigil token issue ci --principal ci-bot
+vaigil token list
+vaigil token revoke ID
+vaigil token stale</code></pre>
+<p>A token is shown once and stored only as a hash. An administrator's token takes a second administrator.</p>

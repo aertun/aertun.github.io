@@ -1,0 +1,30 @@
+<!--
+title: The audit log
+short: Audit log
+seo: Vaigil audit log: signed, anchored and streamed to a SIEM
+description: An append-only audit log: a hash chain, a Merkle tree, heads signed with Ed25519 and ML-DSA, anchored to Bitcoin, written by its own process and streamed to a SIEM.
+lead: An append-only, signed, anchored record, and a stream of it to another SIEM.
+icon: logs
+screens: Log
+updated: 2026-10-23
+-->
+<pre><code>vaigil auditlog verify
+vaigil auditlog show SEQ
+vaigil auditlog prove SEQ
+vaigil auditlog head --save
+vaigil auditlog consistency</code></pre>
+<p>Every change is a record in a hash chain, with a Merkle tree over it. A tree head is signed with Ed25519 and ML-DSA (post-quantum), and <code>prove</code> gives a receipt anybody can check against a head.</p>
+<h2 id="anchor">Anchoring</h2>
+<pre><code>vaigil auditlog anchor submit
+vaigil auditlog anchor upgrade
+vaigil auditlog anchor status</code></pre>
+<p>The head is committed to Bitcoin through OpenTimestamps, so rewriting history is detectable by somebody who never trusted the operator.</p>
+<h2 id="logd">Its own writer</h2>
+<pre><code>vaigil logd
+vaigil logd status</code></pre>
+<p>Run as its own account, the log writer is the only process that writes the log, so the console cannot rewrite what it recorded. A decision that is nothing but its record is reported as failed when the record cannot be written.</p>
+<h2 id="stream">Streaming to a SIEM</h2>
+<pre><code>vaigil config set siem.stream.url https://siem.example.com/ingest
+vaigil siem stream key
+vaigil siem stream status</code></pre>
+<p>Batches of OCSF, each following the last exactly, each carrying a signed tree head and an HTTP message signature (RFC 9421), so the receiver can prove nothing was dropped or changed. <code>vaigil siem ocsf</code>, <code>cef</code> and <code>jsonl</code> export the log as files.</p>

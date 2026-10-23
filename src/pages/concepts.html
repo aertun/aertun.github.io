@@ -1,0 +1,23 @@
+<!--
+title: Glossary
+short: Glossary
+seo: Vaigil glossary: events, findings, cases, rules and roles
+description: Short definitions of the words the Vaigil manual and console use: sources, events, detections, findings, cases, regimes, playbooks, actions and the audit log.
+lead: The terms this manual uses, defined once.
+icon: description
+updated: 2026-10-23
+-->
+<dl class="glossary">
+<dt>Source</dt><dd>Where events come from: a connector reading another tool's API, a log file mapped by a source mapping, or a feed another system pushes to.</dd>
+<dt>Event</dt><dd>One thing that happened, mapped to one shape and kept append-only in the event store before anything reads it.</dd>
+<dt>Detection rule</dt><dd>A declared condition over events, with fixtures it must match and must not. A rule is <em>live</em>, in the <em>trial</em> ring (it records what it would raise) or <em>off</em>.</dd>
+<dt>Finding</dt><dd>Something a rule, a correlation or an automation says is wrong. Its state is open, triaged, accepted, fixed, stale, false-positive or benign, and every decision on it is kept.</dd>
+<dt>Case, incident</dt><dd>A record of something being handled, graded sev1 to sev4, with the notification duties of each regime that applies.</dd>
+<dt>Regime</dt><dd>A law with a notification clock: GDPR (eu), NIS2, DORA, SEC, CIRCIA or HIPAA. A clock starts when somebody decides the organisation is aware.</dd>
+<dt>Playbook</dt><dd>Steps for a kind of incident, proposed, approved and then worked through step by step.</dd>
+<dt>Action</dt><dd>One declared thing done to another platform, such as suspending an Okta account. Asked for by one person, approved by another.</dd>
+<dt>Automation</dt><dd>A rule of the form when this happens, if this is true, do this, in one of three modes: watch, ask or act.</dd>
+<dt>Estate</dt><dd>The people who work here and what they use, joined across the tools that know about them.</dd>
+<dt>SSVC, VEX</dt><dd>SSVC is the decision tree that turns a vulnerability's facts into what to do; VEX is the published statement of whether a product is affected.</dd>
+<dt>Audit log</dt><dd>The append-only record of every change Vaigil makes, hash-chained, signed and anchored.</dd>
+</dl>

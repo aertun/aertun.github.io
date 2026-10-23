@@ -1,0 +1,21 @@
+<!--
+title: Single sign-on
+short: Single sign-on
+seo: Vaigil single sign-on: OpenID Connect and SAML
+description: Sign in through OpenID Connect or SAML. Single sign-on counts as two factors only when the identity provider says it used them; otherwise a passkey is asked for.
+lead: OpenID Connect and SAML, counted as two factors only when the provider says so.
+icon: sso
+screens: Single sign-on
+updated: 2026-10-23
+-->
+<h2 id="oidc">OpenID Connect</h2>
+<pre><code>vaigil oidc configure
+vaigil oidc check
+vaigil oidc status</code></pre>
+<h2 id="saml">SAML</h2>
+<pre><code>vaigil saml presets
+vaigil saml add
+vaigil saml metadata
+vaigil saml list</code></pre>
+<h2 id="two-factors">Two factors</h2>
+<p>A sign-in through the identity provider counts as two factors only when the provider says it used them: for OpenID Connect, the <code>amr</code> and <code>acr</code> claims with a recent <code>auth_time</code>; for SAML, the authentication context. When it does not say, Vaigil asks for the person's passkey as well.</p>

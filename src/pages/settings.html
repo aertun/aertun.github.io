@@ -1,0 +1,28 @@
+<!--
+title: Settings
+short: Settings
+seo: Vaigil settings: secure defaults and two-person changes
+description: Every Vaigil setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and hard bounds no reason steps past.
+lead: Every setting, what it does, and why a weaker value needs a second administrator.
+icon: settings
+screens: Settings
+updated: 2026-10-23
+-->
+<pre><code>vaigil config list
+vaigil config explain session.idle
+vaigil config set session.idle 30m
+vaigil config unset session.idle</code></pre>
+<p>Every default is the safer value. Setting a weaker one needs <code>--accept-risk</code> and a reason that is recorded, and then goes to a second administrator before it applies. Some settings have hard bounds no reason steps outside, such as the hour NIST SP 800-63B-4 sets for an unused session.</p>
+<table>
+<thead><tr><th>Setting</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td><code>session.idle</code>, <code>session.max</code></td><td>How long a session lasts unused (an hour, at most), and at most in all. Anybody who can grant access is signed out after fifteen minutes unused.</td></tr>
+<tr><td><code>admin.base_url</code>, <code>admin.behind_tls_proxy</code></td><td>The console's public address, and whether a proxy in front of it ends TLS.</td></tr>
+<tr><td><code>network.mode</code></td><td>Open, or offline: refuse every connection that would leave the host.</td></tr>
+<tr><td><code>auth.throttle.*</code></td><td>When failed sign-ins start to be delayed, and how long a delay grows.</td></tr>
+<tr><td><code>security.contact</code></td><td>Where your security team is reached.</td></tr>
+<tr><td><code>siem.stream.url</code></td><td>Where the audit log is sent as it is written.</td></tr>
+<tr><td><code>passkey.require_hardware</code>, <code>passkey.authenticators</code></td><td>Which authenticators may hold a passkey.</td></tr>
+<tr><td><code>token.ttl.default</code>, <code>token.ttl.max</code></td><td>How long a token lasts by default, and at most.</td></tr>
+</tbody>
+</table>

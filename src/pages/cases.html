@@ -1,0 +1,25 @@
+<!--
+title: Cases, incidents and notification clocks
+short: Cases and incidents
+seo: Vaigil incident response: legal clocks, two-person actions
+description: Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.
+lead: Incidents with the clocks each law starts, and actions a second person approves.
+icon: cases
+screens: Cases
+updated: 2026-10-23
+-->
+<ol class="steps">
+<li><h3>Choose the regimes that apply</h3><pre><code>vaigil incident regimes eu nis2</code></pre><p>With none set, a new incident starts with no obligations and no clocks.</p></li>
+<li><h3>Declare an incident</h3><pre><code>vaigil incident declare --title "Token used from an unknown country" --grade sev2 --finding ID</code></pre></li>
+<li><h3>Start the clocks</h3><p>A clock starts when somebody decides the organisation is aware, and that decision is recorded with its reason.</p><pre><code>vaigil incident decide ID aware --because "..."
+vaigil incident duties</code></pre></li>
+<li><h3>Discharge or waive each duty</h3><pre><code>vaigil incident discharge ID "NIS2 early warning" --because "sent to the CSIRT"
+vaigil incident waive ID "GDPR Article 34" --because "no personal data involved"</code></pre></li>
+<li><h3>Work a playbook</h3><pre><code>vaigil incident playbooks
+vaigil incident propose ID account-compromise
+vaigil incident step ID account-compromise STEP done --because "..."</code></pre><p>The shipped playbooks cover account compromise, phishing, malware on an endpoint, a lost device and exposed data.</p></li>
+<li><h3>Act on another platform, with a second person</h3><pre><code>vaigil action add okta-suspend-user --org example
+vaigil incident act ID okta-suspend-user okta:USER --because "..."
+vaigil incident act-approve ID 1</code></pre><p>The exact request is shown before anybody approves it, and it is sent only when a second person does.</p></li>
+</ol>
+<p>The deadlines are the published ones, counted from the decision, not legal advice. Notices to the people affected are drafted, planned and sent with <code>vaigil notify</code>.</p>

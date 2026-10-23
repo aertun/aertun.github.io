@@ -1,0 +1,40 @@
+# The menu, in order. "## Group" starts a group; each line after it is a
+# page in src/pages, by slug. A page not listed here is built and linked to,
+# and not shown in the menu.
+
+## Get started
+start
+install
+concepts
+
+## Operations
+approvals
+findings
+cases
+
+## Investigation
+events
+intelligence
+
+## Detection
+detections
+automations
+connectors
+
+## Exposure
+vulnerabilities
+workforce
+
+## Administration
+people
+roles
+sso
+passkeys
+settings
+audit
+security
+
+## Reference
+cli
+mcp
+licence

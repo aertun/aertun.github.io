@@ -1,0 +1,24 @@
+<!--
+title: Estate, workforce risk and reminders
+short: Estate and workforce
+seo: Vaigil workforce risk: the estate, devices and reminders
+description: Join who works here with their devices, training and accounts across your tools, see where coverage is missing, send reminders, and review vendors and access.
+lead: Who works here, what they use, how exposed each is, and reminders that close the gaps.
+icon: workforce
+screens: Workforce risk
+updated: 2026-10-23
+-->
+<pre><code>vaigil estate build
+vaigil estate scores --limit 20
+vaigil workforce coverage
+vaigil workforce gaps
+vaigil remind preview
+vaigil remind send</code></pre>
+<p>The estate joins the people your identity provider knows with the devices, training records and accounts other tools report, leavers included. A person's score is a file on an employee, so the Workforce risk screen is for administrators only, and the MCP interface shows only numbers, never names.</p>
+<h2 id="vendors">Vendors and access reviews</h2>
+<pre><code>vaigil vendor reconcile
+vaigil vendor review ID
+vaigil access open q4 identities.jsonl --scope okta,github --due 2026-12-10
+vaigil access decide q4 okta:00u1abc revoke
+vaigil access close q4 identities-after.jsonl</code></pre>
+<p>Each account is kept, revoked or reduced. A review closes on a later import, which shows whether what was decided was done; without one, a revocation is reported as unverified.</p>

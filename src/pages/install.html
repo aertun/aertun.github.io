@@ -1,0 +1,29 @@
+<!--
+title: Install and run Vaigil
+short: Install
+seo: Install Vaigil: from source, as a service, in a container
+description: Build Vaigil from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
+lead: Get the program, and run it the way it is meant to be run.
+icon: download
+updated: 2026-10-23
+-->
+<h2 id="from-source">From source</h2>
+<p>Go 1.27 or later, and nothing else: <code>go.mod</code> has no require block, so the standard library and the Go toolchain are the whole build.</p>
+<pre><code>make
+sudo make install</code></pre>
+<p><code>make install</code> honours <code>prefix</code> and <code>DESTDIR</code>, and <code>sudo make uninstall</code> removes it. Without make:</p>
+<pre><code>go build -o vaigil ./cmd/vaigil
+install -m 0755 vaigil /usr/local/bin/</code></pre>
+<h2 id="container">In a container</h2>
+<pre><code>docker build -t vaigil .
+docker run --rm -v vaigil:/srv vaigil --root /srv/store init --admin you@example.com
+docker run -p 8080:8080 -v vaigil:/srv vaigil</code></pre>
+<p>The first command prints the link that adds your passkey; open it once the second is running. The image is the binary alone on <code>gcr.io/distroless/static-debian12:nonroot</code>: no shell, no package manager, no interpreter and no libc. It runs as nonroot and carries LICENSE and NOTICE.</p>
+<h2 id="releases">Releases</h2>
+<p>The release workflow publishes a static binary for Linux, macOS and Windows on amd64 and arm64, with <code>SHA256SUMS</code>, a build provenance attestation for each, and the image <code>ghcr.io/vaigil/vaigil</code>. Check a binary before you run it:</p>
+<pre><code>sha256sum -c --ignore-missing SHA256SUMS
+gh attestation verify vaigil-linux-amd64 --repo Vaigil/Vaigil</code></pre>
+<h2 id="proxy">Behind a reverse proxy</h2>
+<p>Set <code>admin.base_url</code> to the address people use and <code>admin.behind_tls_proxy</code> to true. The repository's <code>deploy/</code> folder has a systemd unit and a Caddy configuration.</p>
+<pre><code>vaigil config set admin.base_url https://vaigil.example.com
+vaigil config set admin.behind_tls_proxy true</code></pre>

@@ -1,0 +1,24 @@
+<!--
+title: Events and hunting
+short: Events and hunting
+seo: Vaigil events: an append-only store, and hunting the rare
+description: Every event mapped to one shape and kept append-only, with retention and legal holds, identity links across platforms, and a hunt that shows what is rare.
+lead: What happened, kept append-only, and what is rare enough to look at.
+icon: events
+screens: Events, Hunt
+updated: 2026-10-23
+-->
+<h2 id="store">The event store</h2>
+<pre><code>vaigil spool stats
+vaigil spool verify
+vaigil spool retain --apply
+vaigil spool hold NAME --why "litigation hold"</code></pre>
+<p>Retention never deletes what a hold covers, and a hold is lifted by name.</p>
+<h2 id="identity">One person, many accounts</h2>
+<pre><code>vaigil identity link okta:00u1abc dana@example.com
+vaigil identity list</code></pre>
+<h2 id="hunt">Hunting</h2>
+<pre><code>vaigil telemetry fields events.jsonl
+vaigil hunt --field raw.user_agent --by actor events.jsonl
+vaigil triage events.jsonl --rules ./rules</code></pre>
+<p>A hunt counts one field's values and shows the rarest, which is what is worth a look. The Hunt screen does the same over the store, and offers what you found as the start of a rule.</p>

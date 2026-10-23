@@ -1,0 +1,23 @@
+<!--
+title: Automations
+short: Automations
+seo: Vaigil SOAR automations: watch, ask or act
+description: Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.
+lead: When this happens, do this: rules that watch, ask, or act within limits.
+icon: automations
+screens: Automations, Sign-ins
+updated: 2026-10-23
+-->
+<pre><code>vaigil automate templates
+vaigil automate add TEMPLATE
+vaigil automate mode ID ask
+vaigil automate runs
+vaigil automate approve RUN</code></pre>
+<ul>
+<li><strong>Watch</strong> records what the rule would do.</li>
+<li><strong>Ask</strong> waits for a person to approve each run.</li>
+<li><strong>Act</strong> does it at once, within an hourly limit per rule, so one noisy source cannot suspend everybody.</li>
+</ul>
+<p>Whoever wrote a rule does not approve the runs it holds. Approving a run that acts on people's access takes an administrator of all of Vaigil. Rules about sign-ins can tell an office or a VPN from anywhere else:</p>
+<pre><code>vaigil geo network add 198.51.100.0/24 head-office --kind office
+vaigil geo status</code></pre>

@@ -1,0 +1,85 @@
+<!--
+title: Vaigil manual
+short: Overview
+seo: Vaigil: open-source AI SIEM, SOAR and vulnerability management
+description: Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.
+lead: The manual for Vaigil, open-source AI security operations.
+icon: start
+updated: 2026-10-23
+-->
+<section class="hero">
+  <p class="eyebrow"><icon name="code"></icon>Open source · self-hosted · one binary, no dependencies</p>
+  <h1>Open-source <em>AI security operations</em></h1>
+  <p class="lead">Vaigil collects what happens on the platforms your organisation runs, detects what is wrong, lets an AI analyst take the first pass without letting it decide anything, and keeps a tamper-evident record of every action a person took about it. SIEM, SOAR and vulnerability management, in one self-hosted binary.</p>
+  <div class="actions">
+    <a class="btn" href="/start/"><icon name="arrow_forward"></icon>Get started</a>
+    <a class="btn btn-tonal" href="/detections/">Write a detection</a>
+    <a class="btn btn-outlined" href="https://github.com/Vaigil/Vaigil"><icon name="code"></icon>Source on GitHub</a>
+  </div>
+</section>
+<section class="home-section" id="why">
+<h2 id="why-title">Built so that nobody, and no model, acts alone</h2>
+<div class="pillars">
+<div class="pillar"><h3>AI that cannot be talked into anything</h3><p>The AI analyst's plan is fixed in code before it reads a log line, its answer is one word from a closed set, and the reason a person reads is built from counts, so text an attacker wrote never reaches the screen of whoever decides.</p></div>
+<div class="pillar"><h3>Two people for what matters</h3><p>An action on another platform is approved by somebody other than whoever asked, and making an administrator, issuing an administrator's token or weakening a setting takes a second administrator.</p></div>
+<div class="pillar"><h3>A record nobody can quietly change</h3><p>Every change is in an append-only audit log: a hash chain, tree heads signed with Ed25519 and ML-DSA, and the head committed to Bitcoin.</p></div>
+</div>
+</section>
+<section class="home-section" id="get-started">
+<h2 id="get-started-title">Get started</h2>
+<ul class="cards">
+<li><a class="card" href="/start/"><span class="card-icon"><icon name="start"></icon></span><h3 id="card-start" class="card-title">Get started</h3><p>From nothing to a running console, your first source and your first detections.</p></a></li>
+<li><a class="card" href="/install/"><span class="card-icon"><icon name="download"></icon></span><h3 id="card-install" class="card-title">Install and run it</h3><p>Build it, run it as a service or in a container, and put it behind a proxy.</p></a></li>
+<li><a class="card" href="/concepts/"><span class="card-icon"><icon name="description"></icon></span><h3 id="card-concepts" class="card-title">Glossary</h3><p>Short definitions of the terms this manual uses.</p></a></li>
+</ul>
+</section>
+<section class="home-section" id="operations">
+<h2 id="operations-title">Operations</h2>
+<ul class="cards">
+<li><a class="card" href="/approvals/"><span class="card-icon"><icon name="approvals"></icon></span><h3 id="card-approvals" class="card-title">Approvals</h3><p>Everything waiting for you to decide, in one place.</p></a></li>
+<li><a class="card" href="/findings/"><span class="card-icon"><icon name="findings"></icon></span><h3 id="card-findings" class="card-title">Findings</h3><p>One queue, ranked by risk, with the AI analyst's suggestions and every decision kept.</p></a></li>
+<li><a class="card" href="/cases/"><span class="card-icon"><icon name="cases"></icon></span><h3 id="card-cases" class="card-title">Cases and incidents</h3><p>Incidents with the notification clocks each law starts, playbooks, and two-person actions.</p></a></li>
+</ul>
+</section>
+<section class="home-section" id="investigation">
+<h2 id="investigation-title">Investigation</h2>
+<ul class="cards">
+<li><a class="card" href="/events/"><span class="card-icon"><icon name="events"></icon></span><h3 id="card-events" class="card-title">Events and hunting</h3><p>What happened, kept append-only, and what is rare enough to look at.</p></a></li>
+<li><a class="card" href="/intelligence/"><span class="card-icon"><icon name="indicators"></icon></span><h3 id="card-intelligence" class="card-title">Threat intelligence</h3><p>Indicators of compromise from STIX 2.1 bundles or plain lists.</p></a></li>
+</ul>
+</section>
+<section class="home-section" id="detection">
+<h2 id="detection-title">Detection</h2>
+<ul class="cards">
+<li><a class="card" href="/detections/"><span class="card-icon"><icon name="detections"></icon></span><h3 id="card-detections" class="card-title">Detections</h3><p>Rules with fixtures, Sigma import, a trial ring, correlations and suppressions that end.</p></a></li>
+<li><a class="card" href="/automations/"><span class="card-icon"><icon name="automations"></icon></span><h3 id="card-automations" class="card-title">Automations</h3><p>When this happens, do this: rules that watch, ask, or act within limits.</p></a></li>
+<li><a class="card" href="/connectors/"><span class="card-icon"><icon name="feeds"></icon></span><h3 id="card-connectors" class="card-title">Connectors and feeds</h3><p>Read other tools through their APIs, map their logs, and take what they push.</p></a></li>
+</ul>
+</section>
+<section class="home-section" id="exposure">
+<h2 id="exposure-title">Exposure</h2>
+<ul class="cards">
+<li><a class="card" href="/vulnerabilities/"><span class="card-icon"><icon name="vulns"></icon></span><h3 id="card-vulnerabilities" class="card-title">Vulnerabilities</h3><p>KEV, EPSS and SSVC to decide, OpenVEX to publish, SBOMs and SARIF to import.</p></a></li>
+<li><a class="card" href="/workforce/"><span class="card-icon"><icon name="workforce"></icon></span><h3 id="card-workforce" class="card-title">Estate and workforce</h3><p>Who works here, what they use, how exposed each is, and reminders that close the gaps.</p></a></li>
+</ul>
+</section>
+<section class="home-section" id="administration">
+<h2 id="administration-title">People, sign-in and its own record</h2>
+<ul class="cards">
+<li><a class="card" href="/people/"><span class="card-icon"><icon name="people"></icon></span><h3 id="card-people" class="card-title">People</h3><p>Who may do what, granted on a path, ending when it should.</p></a></li>
+<li><a class="card" href="/roles/"><span class="card-icon"><icon name="badge"></icon></span><h3 id="card-roles" class="card-title">Roles</h3><p>Four roles in a ladder, three jobs beside it, and the duties kept apart.</p></a></li>
+<li><a class="card" href="/sso/"><span class="card-icon"><icon name="sso"></icon></span><h3 id="card-sso" class="card-title">Single sign-on</h3><p>OpenID Connect and SAML, counted as two factors only when the provider says so.</p></a></li>
+<li><a class="card" href="/passkeys/"><span class="card-icon"><icon name="passkeys"></icon></span><h3 id="card-passkeys" class="card-title">Passkeys</h3><p>Sign in with a passkey that checks it is you, and recover without a password.</p></a></li>
+<li><a class="card" href="/settings/"><span class="card-icon"><icon name="settings"></icon></span><h3 id="card-settings" class="card-title">Settings</h3><p>Every setting, what it does, and why a weaker value needs a second administrator.</p></a></li>
+<li><a class="card" href="/audit/"><span class="card-icon"><icon name="logs"></icon></span><h3 id="card-audit" class="card-title">The audit log</h3><p>An append-only, signed, anchored record, and a stream of it to another SIEM.</p></a></li>
+<li><a class="card" href="/security/"><span class="card-icon"><icon name="security"></icon></span><h3 id="card-security" class="card-title">How Vaigil defends itself</h3><p>Its own network purposes, sealed credentials, separate log writer and session limits.</p></a></li>
+</ul>
+</section>
+<section class="home-section" id="reference">
+<h2 id="reference-title">Reference</h2>
+<ul class="cards">
+<li><a class="card" href="/cli/"><span class="card-icon"><icon name="terminal"></icon></span><h3 id="card-cli" class="card-title">Command line</h3><p>Every command, and the flags every command takes.</p></a></li>
+<li><a class="card" href="/mcp/"><span class="card-icon"><icon name="hub"></icon></span><h3 id="card-mcp" class="card-title">AI agents over MCP</h3><p>Eight operations behind four tools, for an agent that reads and proposes.</p></a></li>
+<li><a class="card" href="/licence/"><span class="card-icon"><icon name="license"></icon></span><h3 id="card-licence" class="card-title">Licence</h3><p>Apache-2.0, with nothing held back.</p></a></li>
+</ul>
+</section>

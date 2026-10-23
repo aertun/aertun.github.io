@@ -1,0 +1,25 @@
+<!--
+title: Roles and separation of duties
+short: Roles
+seo: Vaigil roles: least privilege and separation of duties
+description: Four roles in a ladder (viewer, analyst, responder, admin), three jobs beside it (engineer, vuln-manager, auditor), and duties kept apart so nobody acts alone.
+lead: Four roles in a ladder, three jobs beside it, and the duties kept apart.
+icon: badge
+updated: 2026-10-23
+-->
+<table>
+<thead><tr><th>Role</th><th>May</th></tr></thead>
+<tbody>
+<tr><td><code>viewer</code></td><td>read findings, cases, the vulnerability queue and the dashboards</td></tr>
+<tr><td><code>analyst</code></td><td>triage findings, open cases and add notes to them, hunt through events</td></tr>
+<tr><td><code>responder</code></td><td>run cases, ask for an action on another platform, approve somebody else's action, accept a risk</td></tr>
+<tr><td><code>admin</code></td><td>manage people, connectors and their credentials, and settings</td></tr>
+</tbody>
+</table>
+<p>Each role includes the ones before it. Beside the ladder are jobs, granted for a set time: an <code>engineer</code> tunes detections and automation rules, a <code>vuln-manager</code> decides vulnerabilities, and an <code>auditor</code> reads the queue and the audit log. A job is granted for a set time, and the grant ends by itself. <code>vaigil auth roles</code> prints the whole model.</p>
+<h2 id="duties">Duties kept apart</h2>
+<ul>
+<li>An action on another platform is approved by somebody other than whoever asked.</li>
+<li>Whoever wrote an automation rule does not approve the runs it holds.</li>
+<li>Making somebody an administrator, issuing an administrator's token, weakening a setting, lowering how many approvals a change needs and moving the audit log each take a second administrator.</li>
+</ul>

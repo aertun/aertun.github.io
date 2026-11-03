@@ -1,22 +1,22 @@
 <!--
-title: How Vaigil defends itself
+title: How AeroProve defends itself
 short: Security
-seo: How Vaigil defends itself: egress, vault, sessions, MFA
-description: What Vaigil may connect to and why, credentials sealed in its vault, a separate log writer, two factors for everybody, session limits and an AI that only suggests.
+seo: How AeroProve defends itself: egress, vault, sessions, MFA
+description: What AeroProve may connect to and why, credentials sealed in its vault, a separate log writer, two factors for everybody, session limits and an AI that only suggests.
 lead: Its own network purposes, sealed credentials, separate log writer and session limits.
 icon: security
 updated: 2026-10-23
 -->
 <h2 id="network">What it may connect to</h2>
-<pre><code>vaigil network</code></pre>
+<pre><code>aeroprove network</code></pre>
 <p>Every outbound connection is for one declared purpose: an action, anchoring, a connector, mail, the AI analyst's model, the SIEM stream, shared signals, Slack reminders, single sign-on and notice webhooks. An undeclared purpose is refused in every mode, and <code>network.mode offline</code> refuses everything that would leave the host.</p>
 <h2 id="vault">Sealed credentials</h2>
-<pre><code>vaigil vault status
-vaigil vault rotate</code></pre>
+<pre><code>aeroprove vault status
+aeroprove vault rotate</code></pre>
 <p>A connector's credentials and a feed's secret are sealed under a keyring, so the store's files alone give nobody the values: a lost laptop, a backup on an open bucket, a disposed disk. With no keyring, none can be stored.</p>
 <h2 id="sign-in">Sign-in</h2>
 <p>Everybody signs in with two factors: a passkey that checks it is them, or single sign-on that says it used two. Failed sign-ins lock out places, not people, and sessions end after an hour unused, fifteen minutes for anybody who can grant access.</p>
 <h2 id="ai">The AI only suggests</h2>
 <p>The AI analyst and agents over MCP read and propose. Neither can record a decision, approve an action, change who may do what, or reach another platform. See <a href="/findings/">Findings</a> and <a href="/mcp/">AI agents over MCP</a>.</p>
 <h2 id="reporting">Reporting a vulnerability</h2>
-<p>Use GitHub's <a href="https://github.com/Vaigil/Vaigil/security/advisories/new">private vulnerability reporting</a> for the repository.</p>
+<p>Use GitHub's <a href="https://github.com/AeroProve/AeroProve/security/advisories/new">private vulnerability reporting</a> for the repository.</p>

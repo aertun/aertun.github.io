@@ -1,17 +1,17 @@
 <!--
 title: Settings
 short: Settings
-seo: Vaigil settings: secure defaults and two-person changes
-description: Every Vaigil setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and hard bounds no reason steps past.
+seo: AeroProve settings: secure defaults and two-person changes
+description: Every AeroProve setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and hard bounds no reason steps past.
 lead: Every setting, what it does, and why a weaker value needs a second administrator.
 icon: settings
 screens: Settings
 updated: 2026-10-23
 -->
-<pre><code>vaigil config list
-vaigil config explain session.idle
-vaigil config set session.idle 30m
-vaigil config unset session.idle</code></pre>
+<pre><code>aeroprove config list
+aeroprove config explain session.idle
+aeroprove config set session.idle 30m
+aeroprove config unset session.idle</code></pre>
 <p>Every default is the safer value. Setting a weaker one needs <code>--accept-risk</code> and a reason that is recorded, and then goes to a second administrator before it applies. Some settings have hard bounds no reason steps outside, such as the hour NIST SP 800-63B-4 sets for an unused session.</p>
 <table>
 <thead><tr><th>Setting</th><th>What it is</th></tr></thead>

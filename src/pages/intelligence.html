@@ -1,15 +1,15 @@
 <!--
 title: Threat intelligence and indicators
 short: Threat intelligence
-seo: Vaigil threat intelligence: STIX 2.1 and indicator lists
+seo: AeroProve threat intelligence: STIX 2.1 and indicator lists
 description: Import indicators of compromise from STIX 2.1 bundles or plain lists, add them one at a time, and see which events and findings they match.
 lead: Indicators of compromise, from STIX 2.1 bundles or plain lists.
 icon: indicators
 screens: Indicators
 updated: 2026-10-23
 -->
-<pre><code>vaigil intel import bundle.json --source "isac"
-vaigil intel add 203.0.113.7 --source "case 12"
-vaigil intel list
-vaigil intel remove ID</code></pre>
+<pre><code>aeroprove intel import bundle.json --source "isac"
+aeroprove intel add 203.0.113.7 --source "case 12"
+aeroprove intel list
+aeroprove intel remove ID</code></pre>
 <p>A STIX 2.1 bundle's indicators are read from their patterns. A pattern with AND, a time qualifier, a wildcard or a range is reported as not read, never guessed at. A plain list carries one value to a line, defanged or not. Each indicator keeps the source it came from, so a match says who said it was bad, and the events already held are searched for it when it arrives.</p>

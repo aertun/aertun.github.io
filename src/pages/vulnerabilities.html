@@ -1,7 +1,7 @@
 <!--
 title: Vulnerability management
 short: Vulnerabilities
-seo: Vaigil vulnerability management: KEV, EPSS, SSVC and VEX
+seo: AeroProve vulnerability management: KEV, EPSS, SSVC and VEX
 description: Rank vulnerabilities with CISA KEV and EPSS, decide them with SSVC, publish OpenVEX, scan SBOMs against OSV, import SARIF, and plan upgrades that clear most risk.
 lead: Decide vulnerabilities, publish what you decided, and fix the ones that matter.
 icon: vulns
@@ -9,17 +9,17 @@ screens: Vulnerabilities
 updated: 2026-10-23
 -->
 <ol class="steps">
-<li><h3>Import what is known</h3><pre><code>vaigil vuln import --bom sbom.json --where api --osv osv.json --kev kev.json --epss epss.csv
-vaigil vuln reach --source ./src --where api</code></pre><p><code>reach</code> reads the asset's source for the symbols each open advisory names, and records what it found against that advisory.</p></li>
-<li><h3>Say what each asset is</h3><pre><code>vaigil vuln asset ISSUER:VALUE --exposure open --impact high --because "public API"</code></pre><p>Exposure is small, controlled or open; impact is low, medium, high or very high.</p></li>
-<li><h3>Read the queue and the plan</h3><pre><code>vaigil vuln queue
-vaigil vuln plan
-vaigil vuln why CVE-2026-0001</code></pre><p>The plan is the smallest set of upgrades that clears the most risk.</p></li>
-<li><h3>Decide, and publish</h3><pre><code>vaigil vuln assess CVE-2026-0001 PKG not_affected
-vaigil vuln accept CVE-2026-0002 PKG --owner dana --until 2027-01-31 --because "..."
-vaigil vuln vex --author "Example Ltd" --id https://example.com/vex/1</code></pre><p>The statuses are affected, fixed, not_affected and under_investigation. A risk acceptance names its owner, its end date and its reason.</p></li>
+<li><h3>Import what is known</h3><pre><code>aeroprove vuln import --bom sbom.json --where api --osv osv.json --kev kev.json --epss epss.csv
+aeroprove vuln reach --source ./src --where api</code></pre><p><code>reach</code> reads the asset's source for the symbols each open advisory names, and records what it found against that advisory.</p></li>
+<li><h3>Say what each asset is</h3><pre><code>aeroprove vuln asset ISSUER:VALUE --exposure open --impact high --because "public API"</code></pre><p>Exposure is small, controlled or open; impact is low, medium, high or very high.</p></li>
+<li><h3>Read the queue and the plan</h3><pre><code>aeroprove vuln queue
+aeroprove vuln plan
+aeroprove vuln why CVE-2026-0001</code></pre><p>The plan is the smallest set of upgrades that clears the most risk.</p></li>
+<li><h3>Decide, and publish</h3><pre><code>aeroprove vuln assess CVE-2026-0001 PKG not_affected
+aeroprove vuln accept CVE-2026-0002 PKG --owner dana --until 2027-01-31 --because "..."
+aeroprove vuln vex --author "Example Ltd" --id https://example.com/vex/1</code></pre><p>The statuses are affected, fixed, not_affected and under_investigation. A risk acceptance names its owner, its end date and its reason.</p></li>
 </ol>
 <h2 id="code">Code and dependencies</h2>
-<pre><code>vaigil sca scan --bom sbom.json --osv db.json
-vaigil sarif read results.sarif
-vaigil appsec triage</code></pre>
+<pre><code>aeroprove sca scan --bom sbom.json --osv db.json
+aeroprove sarif read results.sarif
+aeroprove appsec triage</code></pre>

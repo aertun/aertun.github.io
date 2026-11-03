@@ -1,14 +1,14 @@
 <img src="assets/mark.svg" alt="" width="72" height="72">
 
-# vaigil.github.io
+# aeroprove.github.io
 
-The manual for [Vaigil](https://github.com/Vaigil/Vaigil), the AI-agent
+The manual for [AeroProve](https://github.com/AeroProve/AeroProve), the AI-agent
 wind tunnel: breach-and-attack simulation for deployed agent stacks on a
 complete detection engine, self-hosted in one binary:
-**[vaigil.github.io](https://vaigil.github.io/)**.
+**[aeroprove.github.io](https://aeroprove.github.io/)**.
 
-A guide per page, each with the commands it describes as Vaigil prints them.
-Every screen in the Vaigil console has a Help link to its guide.
+A guide per page, each with the commands it describes as AeroProve prints them.
+Every screen in the AeroProve console has a Help link to its guide.
 
 ## How it is built
 
@@ -18,7 +18,7 @@ src/nav.txt        the menu, in order
 src/layout.html    the frame around every page
 assets/            the stylesheet, the one script, the mark, the font and the icons
 gen/               the generator: Go, standard library only
-sections.txt       every guide the Vaigil console links to
+sections.txt       every guide the AeroProve console links to
 ```
 
 ```sh
@@ -36,8 +36,8 @@ URL.
 
 ## The contract with the application
 
-A Help link is `https://vaigil.github.io/SLUG/`, and `docSections` in
-`internal/admin/nav.go` in the Vaigil repository lists the slugs.
+A Help link is `https://aeroprove.github.io/SLUG/`, and `docSections` in
+`internal/admin/nav.go` in the AeroProve repository lists the slugs.
 `sections.txt` lists the same, and the build fails if one is not a page.
 Renaming a guide means changing it in both repositories.
 

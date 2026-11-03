@@ -1,7 +1,7 @@
 <!--
 title: Passkeys, enrolment and recovery
 short: Passkeys
-seo: Vaigil passkeys: phishing-resistant sign-in without passwords
+seo: AeroProve passkeys: phishing-resistant sign-in without passwords
 description: Sign in with a passkey that checks it is you, add one through a one-time enrolment link, lock out failed sign-ins by place, and recover without a password.
 lead: Sign in with a passkey that checks it is you, and recover without a password.
 icon: passkeys
@@ -9,13 +9,13 @@ screens: Passkeys, You
 updated: 2026-10-23
 -->
 <h2 id="enrol">Adding a passkey</h2>
-<pre><code>vaigil auth enrol sam@example.com --for 24h</code></pre>
+<pre><code>aeroprove auth enrol sam@example.com --for 24h</code></pre>
 <p>It prints a one-time link that adds that person's passkey and does nothing else. Give it to them the way you would give a key; <code>--revoke</code> ends it.</p>
 <h2 id="verification">User verification</h2>
 <p>Every passkey must check it is you, with a PIN, a fingerprint or a face, at registration and at every sign-in (NIST SP 800-63B-4). A security key with no PIN is asked to set one.</p>
 <h2 id="lockout">Failed sign-ins</h2>
 <p>Failures lock out the places they come from, not the person: from where you usually sign in, or with your passkey, you still can. After many consecutive failures from anywhere, the method is disabled until the person proves themselves another way or an administrator lets it work again.</p>
-<pre><code>vaigil auth unlock sam@example.com</code></pre>
+<pre><code>aeroprove auth unlock sam@example.com</code></pre>
 <h2 id="recovery">When every administrator's way in is lost</h2>
-<pre><code>vaigil auth recover</code></pre>
+<pre><code>aeroprove auth recover</code></pre>
 <p>Break-glass for the operator of the machine, recorded in the audit log.</p>

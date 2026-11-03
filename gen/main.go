@@ -1,4 +1,4 @@
-// Command gen builds the Vaigil manual from src/ into the site's pages.
+// Command gen builds the AeroProve manual from src/ into the site's pages.
 //
 // The pages are plain HTML, written by hand in src/pages, one file each. This
 // program puts the same frame around every one of them: the bar, the menu, the
@@ -10,7 +10,7 @@
 //	go run ./gen -check   build it in memory and fail if what is committed
 //	                      differs, a link lands nowhere, or a picture is missing
 //
-// Nothing but the standard library, as with Vaigil itself.
+// Nothing but the standard library, as with AeroProve itself.
 package main
 
 import (
@@ -33,7 +33,7 @@ import (
 )
 
 // Site is where the manual is published.
-const Site = "https://vaigil.github.io"
+const Site = "https://aeroprove.github.io"
 
 // Page is one guide.
 type Page struct {
@@ -575,26 +575,26 @@ func jsonLD(p, home *Page, g *Group) template.JS {
 		return u
 	}
 	project := map[string]any{
-		"@type": "Organization", "@id": Site + "/#project", "name": "The Vaigil project",
-		"url": "https://github.com/Vaigil", "logo": Site + "/assets/mark.png",
-		"sameAs": []string{"https://github.com/Vaigil/Vaigil"},
+		"@type": "Organization", "@id": Site + "/#project", "name": "The AeroProve project",
+		"url": "https://github.com/AeroProve", "logo": Site + "/assets/mark.png",
+		"sameAs": []string{"https://github.com/AeroProve/AeroProve"},
 	}
 	graph := []any{project}
 	if p.Slug == "" {
 		graph = append(graph,
 			map[string]any{
-				"@type": "WebSite", "@id": Site + "/#website", "url": Site + "/", "name": "Vaigil manual",
+				"@type": "WebSite", "@id": Site + "/#website", "url": Site + "/", "name": "AeroProve manual",
 				"description": p.Desc, "inLanguage": "en", "publisher": map[string]string{"@id": Site + "/#project"},
 			},
 			map[string]any{
-				"@type": "SoftwareApplication", "@id": Site + "/#software", "name": "Vaigil",
+				"@type": "SoftwareApplication", "@id": Site + "/#software", "name": "AeroProve",
 				"description":            p.Desc,
 				"applicationCategory":    "SecurityApplication",
 				"applicationSubCategory": "Breach-and-attack simulation for AI agents on a security operations engine",
 				"operatingSystem":        "Linux, macOS, Windows",
 				"url":                    Site + "/",
-				"downloadUrl":            "https://github.com/Vaigil/Vaigil/releases/latest",
-				"license":                "https://github.com/Vaigil/Vaigil/blob/main/LICENSE",
+				"downloadUrl":            "https://github.com/AeroProve/AeroProve/releases/latest",
+				"license":                "https://github.com/AeroProve/AeroProve/blob/main/LICENSE",
 				"isAccessibleForFree":    true,
 				"offers":                 map[string]string{"@type": "Offer", "price": "0", "priceCurrency": "USD"},
 				"image":                  abs(p.Image),
@@ -607,10 +607,10 @@ func jsonLD(p, home *Page, g *Group) template.JS {
 			"dateModified": p.Updated, "image": abs(p.Image),
 			"author":    map[string]string{"@id": Site + "/#project"},
 			"publisher": map[string]string{"@id": Site + "/#project"},
-			"about":     map[string]string{"@type": "SoftwareApplication", "name": "Vaigil"},
-			"isPartOf":  map[string]string{"@type": "WebSite", "name": "Vaigil manual", "url": Site + "/"},
+			"about":     map[string]string{"@type": "SoftwareApplication", "name": "AeroProve"},
+			"isPartOf":  map[string]string{"@type": "WebSite", "name": "AeroProve manual", "url": Site + "/"},
 		}
-		crumbs := []any{map[string]any{"@type": "ListItem", "position": 1, "name": "Vaigil manual", "item": Site + "/"}}
+		crumbs := []any{map[string]any{"@type": "ListItem", "position": 1, "name": "AeroProve manual", "item": Site + "/"}}
 		if g != nil {
 			crumbs = append(crumbs, map[string]any{"@type": "ListItem", "position": 2, "name": g.Name, "item": Site + "/#" + g.ID()})
 		}
@@ -622,12 +622,12 @@ func jsonLD(p, home *Page, g *Group) template.JS {
 }
 
 // llms.txt is the site described for a language model, as llmstxt.org
-// proposes: what Vaigil is, and every guide with a line about it.
+// proposes: what AeroProve is, and every guide with a line about it.
 func llms(groups []*Group, home *Page) []byte {
 	var b bytes.Buffer
-	fmt.Fprintf(&b, "# Vaigil\n\n> %s\n\n", home.Desc)
-	b.WriteString("Vaigil is one Go binary with no third-party dependencies, licensed under Apache-2.0. " +
-		"Source: https://github.com/Vaigil/Vaigil\n")
+	fmt.Fprintf(&b, "# AeroProve\n\n> %s\n\n", home.Desc)
+	b.WriteString("AeroProve is one Go binary with no third-party dependencies, licensed under Apache-2.0. " +
+		"Source: https://github.com/AeroProve/AeroProve\n")
 	for _, g := range groups {
 		fmt.Fprintf(&b, "\n## %s\n\n", g.Name)
 		for _, p := range g.Pages {

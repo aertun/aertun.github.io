@@ -1,6 +1,6 @@
 # Vaigil
 
-> Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.
+> Vaigil replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.
 
 Vaigil is one Go binary with no third-party dependencies, licensed under Apache-2.0. Source: https://github.com/Vaigil/Vaigil
 

@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vaigil: open-source AI SIEM, SOAR and vulnerability management</title>
-<meta name="description" content="Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.">
+<title>Vaigil: the AI-agent wind tunnel</title>
+<meta name="description" content="Vaigil replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.">
 <link rel="canonical" href="https://vaigil.github.io/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f8fafd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131314" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vaigil manual">
-<meta property="og:title" content="Vaigil: open-source AI SIEM, SOAR and vulnerability management">
-<meta property="og:description" content="Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.">
+<meta property="og:title" content="Vaigil: the AI-agent wind tunnel">
+<meta property="og:description" content="Vaigil replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.">
 <meta property="og:url" content="https://vaigil.github.io/">
 <meta property="og:image" content="https://vaigil.github.io/assets/social.png">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vaigil: open-source AI SIEM, SOAR and vulnerability management">
-<meta name="twitter:description" content="Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.">
+<meta name="twitter:title" content="Vaigil: the AI-agent wind tunnel">
+<meta name="twitter:description" content="Vaigil replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.">
 <meta name="twitter:image" content="https://vaigil.github.io/assets/social.png">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/mark.png">
@@ -27,7 +27,7 @@
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script>try{var t=localStorage.getItem("vg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")</script>
 <script src="/assets/docs.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://vaigil.github.io/#project","@type":"Organization","logo":"https://vaigil.github.io/assets/mark.png","name":"The Vaigil project","sameAs":["https://github.com/Vaigil/Vaigil"],"url":"https://github.com/Vaigil"},{"@id":"https://vaigil.github.io/#website","@type":"WebSite","description":"Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.","inLanguage":"en","name":"Vaigil manual","publisher":{"@id":"https://vaigil.github.io/#project"},"url":"https://vaigil.github.io/"},{"@id":"https://vaigil.github.io/#software","@type":"SoftwareApplication","applicationCategory":"SecurityApplication","applicationSubCategory":"AI security operations: SIEM, SOAR and vulnerability management","description":"Vaigil collects security events, detects threats, triages with an AI analyst that only suggests, and keeps a tamper-evident audit log. Self-hosted, one binary.","downloadUrl":"https://github.com/Vaigil/Vaigil/releases/latest","image":"https://vaigil.github.io/assets/social.png","isAccessibleForFree":true,"license":"https://github.com/Vaigil/Vaigil/blob/main/LICENSE","name":"Vaigil","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"Linux, macOS, Windows","publisher":{"@id":"https://vaigil.github.io/#project"},"url":"https://vaigil.github.io/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://vaigil.github.io/#project","@type":"Organization","logo":"https://vaigil.github.io/assets/mark.png","name":"The Vaigil project","sameAs":["https://github.com/Vaigil/Vaigil"],"url":"https://github.com/Vaigil"},{"@id":"https://vaigil.github.io/#website","@type":"WebSite","description":"Vaigil replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.","inLanguage":"en","name":"Vaigil manual","publisher":{"@id":"https://vaigil.github.io/#project"},"url":"https://vaigil.github.io/"},{"@id":"https://vaigil.github.io/#software","@type":"SoftwareApplication","applicationCategory":"SecurityApplication","applicationSubCategory":"Breach-and-attack simulation for AI agents on a security operations engine","description":"Vaigil replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.","downloadUrl":"https://github.com/Vaigil/Vaigil/releases/latest","image":"https://vaigil.github.io/assets/social.png","isAccessibleForFree":true,"license":"https://github.com/Vaigil/Vaigil/blob/main/LICENSE","name":"Vaigil","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"Linux, macOS, Windows","publisher":{"@id":"https://vaigil.github.io/#project"},"url":"https://vaigil.github.io/"}]}</script>
 </head>
 <body class="home">
 <a class="skip" href="#main">Skip to the content</a>
@@ -114,8 +114,8 @@
 <main id="main" class="main">
 <section class="hero">
   <p class="eyebrow"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m193-479 155 155q11 11 11 28t-11 28q-11 11-28 11t-28-11L108-452q-6-6-8.5-13T97-480q0-8 2.5-15t8.5-13l184-184q12-12 28.5-12t28.5 12q12 12 12 28.5T349-635L193-479Zm574-2L612-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L668-268q-12 12-28 11.5T612-269q-12-12-12-28.5t12-28.5l155-155Z"/></svg>Open source · self-hosted · one binary, no dependencies</p>
-  <h1>Open-source <em>AI security operations</em></h1>
-  <p class="lead">Vaigil collects what happens on the platforms your organisation runs, detects what is wrong, lets an AI analyst take the first pass without letting it decide anything, and keeps a tamper-evident record of every action a person took about it. SIEM, SOAR and vulnerability management, in one self-hosted binary.</p>
+  <h1>The AI-agent <em>wind tunnel</em></h1>
+  <p class="lead">Vaigil replays scripted malicious agent sessions — tool poisoning, config rug-pulls, the read-then-exfiltrate chain, over-scoped credentials — through your own telemetry, measures honestly whether your controls caught them, and signs the scorecard a third party can verify. The simulation is replay-first: nothing live is touched, because there is nothing live to touch. Underneath stands everything it runs on: collection, detection, an AI analyst that only suggests, and a tamper-evident record.</p>
   <div class="actions">
     <a class="btn" href="/start/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z"/></svg>Get started</a>
     <a class="btn btn-tonal" href="/detections/">Write a detection</a>
@@ -205,7 +205,7 @@
 </div>
 <footer class="foot">
   <div class="foot-inner">
-    <p><strong>Vaigil</strong> is open-source AI security operations: SIEM, SOAR and vulnerability management for the systems an organisation runs. One Go binary, no third-party dependencies.</p>
+    <p><strong>Vaigil</strong> is the AI-agent wind tunnel: breach-and-attack simulation for deployed agent stacks, on a complete detection engine. One Go binary, no third-party dependencies.</p>
     <p>Open source under the <a href="/licence/">Apache License 2.0</a>. This manual describes <code>main</code>. <a href="https://github.com/Vaigil/Vaigil">Source</a> · <a href="https://github.com/Vaigil/Vaigil/releases">Releases</a> · <a href="https://github.com/Vaigil/Vaigil/blob/main/SECURITY.md">Report a vulnerability</a> · <a href="/llms.txt">llms.txt</a></p>
   </div>
 </footer>

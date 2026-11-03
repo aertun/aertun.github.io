@@ -2,9 +2,10 @@
 
 # vaigil.github.io
 
-The manual for [Vaigil](https://github.com/Vaigil/Vaigil), open-source AI
-security operations (SIEM, SOAR and vulnerability management in one
-self-hosted binary): **[vaigil.github.io](https://vaigil.github.io/)**.
+The manual for [Vaigil](https://github.com/Vaigil/Vaigil), the AI-agent
+wind tunnel: breach-and-attack simulation for deployed agent stacks on a
+complete detection engine, self-hosted in one binary:
+**[vaigil.github.io](https://vaigil.github.io/)**.
 
 A guide per page, each with the commands it describes as Vaigil prints them.
 Every screen in the Vaigil console has a Help link to its guide.

@@ -590,7 +590,7 @@ func jsonLD(p, home *Page, g *Group) template.JS {
 				"@type": "SoftwareApplication", "@id": Site + "/#software", "name": "Vaigil",
 				"description":            p.Desc,
 				"applicationCategory":    "SecurityApplication",
-				"applicationSubCategory": "AI security operations: SIEM, SOAR and vulnerability management",
+				"applicationSubCategory": "Breach-and-attack simulation for AI agents on a security operations engine",
 				"operatingSystem":        "Linux, macOS, Windows",
 				"url":                    Site + "/",
 				"downloadUrl":            "https://github.com/Vaigil/Vaigil/releases/latest",

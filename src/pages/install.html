@@ -1,8 +1,8 @@
 <!--
-title: Install and run AeroProve
+title: Install and run aertun
 short: Install
-seo: Install AeroProve: from source, as a service, in a container
-description: Build AeroProve from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
+seo: Install aertun: from source, as a service, in a container
+description: Build aertun from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
 lead: Get the program, and run it the way it is meant to be run.
 icon: download
 updated: 2026-10-23
@@ -12,18 +12,18 @@ updated: 2026-10-23
 <pre><code>make
 sudo make install</code></pre>
 <p><code>make install</code> honours <code>prefix</code> and <code>DESTDIR</code>, and <code>sudo make uninstall</code> removes it. Without make:</p>
-<pre><code>go build -o aeroprove ./cmd/aeroprove
-install -m 0755 aeroprove /usr/local/bin/</code></pre>
+<pre><code>go build -o aertun ./cmd/aertun
+install -m 0755 aertun /usr/local/bin/</code></pre>
 <h2 id="container">In a container</h2>
-<pre><code>docker build -t aeroprove .
-docker run --rm -v aeroprove:/srv aeroprove --root /srv/store init --admin you@example.com
-docker run -p 8080:8080 -v aeroprove:/srv aeroprove</code></pre>
+<pre><code>docker build -t aertun .
+docker run --rm -v aertun:/srv aertun --root /srv/store init --admin you@example.com
+docker run -p 8080:8080 -v aertun:/srv aertun</code></pre>
 <p>The first command prints the link that adds your passkey; open it once the second is running. The image is the binary alone on <code>gcr.io/distroless/static-debian12:nonroot</code>: no shell, no package manager, no interpreter and no libc. It runs as nonroot and carries LICENSE and NOTICE.</p>
 <h2 id="releases">Releases</h2>
-<p>The release workflow publishes a static binary for Linux, macOS and Windows on amd64 and arm64, with <code>SHA256SUMS</code>, a build provenance attestation for each, and the image <code>ghcr.io/aeroprove/aeroprove</code>. Check a binary before you run it:</p>
+<p>The release workflow publishes a static binary for Linux, macOS and Windows on amd64 and arm64, with <code>SHA256SUMS</code>, a build provenance attestation for each, and the image <code>ghcr.io/aertun/aertun</code>. Check a binary before you run it:</p>
 <pre><code>sha256sum -c --ignore-missing SHA256SUMS
-gh attestation verify aeroprove-linux-amd64 --repo AeroProve/AeroProve</code></pre>
+gh attestation verify aertun-linux-amd64 --repo aertun/aertun</code></pre>
 <h2 id="proxy">Behind a reverse proxy</h2>
 <p>Set <code>admin.base_url</code> to the address people use and <code>admin.behind_tls_proxy</code> to true. The repository's <code>deploy/</code> folder has a systemd unit and a Caddy configuration.</p>
-<pre><code>aeroprove config set admin.base_url https://aeroprove.example.com
-aeroprove config set admin.behind_tls_proxy true</code></pre>
+<pre><code>aertun config set admin.base_url https://aertun.example.com
+aertun config set admin.behind_tls_proxy true</code></pre>

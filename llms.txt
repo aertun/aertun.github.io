@@ -1,49 +1,49 @@
-# AeroProve
+# aertun
 
-> AeroProve replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.
+> aertun replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.
 
-AeroProve is one Go binary with no third-party dependencies, licensed under Apache-2.0. Source: https://github.com/AeroProve/AeroProve
+aertun is one Go binary with no third-party dependencies, licensed under Apache-2.0. Source: https://github.com/aertun/aertun
 
 ## Get started
 
-- [Get started](https://aeroprove.github.io/start/): Build AeroProve, create a store and its first administrator, sign in with a passkey, then connect a source, install detections and decide who else may do what.
-- [Install and run AeroProve](https://aeroprove.github.io/install/): Build AeroProve from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
-- [Glossary](https://aeroprove.github.io/concepts/): Short definitions of the words the AeroProve manual and console use: sources, events, detections, findings, cases, regimes, playbooks, actions, the audit log.
+- [Get started](https://aertun.github.io/start/): Build aertun, create a store and its first administrator, sign in with a passkey, then connect a source, install detections and decide who else may do what.
+- [Install and run aertun](https://aertun.github.io/install/): Build aertun from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
+- [Glossary](https://aertun.github.io/concepts/): Short definitions of the words the aertun manual and console use: sources, events, detections, findings, cases, regimes, playbooks, actions, the audit log.
 
 ## Operations
 
-- [Approvals](https://aeroprove.github.io/approvals/): One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.
-- [Findings and the AI analyst](https://aeroprove.github.io/findings/): One queue of security findings ranked by risk, decisions kept and replayable, and an AI analyst that suggests a verdict from counts without ever recording one.
-- [Cases, incidents and notification clocks](https://aeroprove.github.io/cases/): Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.
+- [Approvals](https://aertun.github.io/approvals/): One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.
+- [Findings and the AI analyst](https://aertun.github.io/findings/): One queue of security findings ranked by risk, decisions kept and replayable, and an AI analyst that suggests a verdict from counts without ever recording one.
+- [Cases, incidents and notification clocks](https://aertun.github.io/cases/): Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.
 
 ## Investigation
 
-- [Events and hunting](https://aeroprove.github.io/events/): Every event mapped to one shape and kept append-only, with retention and legal holds, identity links across platforms, and a hunt that shows what is rare.
-- [Threat intelligence and indicators](https://aeroprove.github.io/intelligence/): Import indicators of compromise from STIX 2.1 bundles or plain lists, add them one at a time, and see which events and findings they match.
+- [Events and hunting](https://aertun.github.io/events/): Every event mapped to one shape and kept append-only, with retention and legal holds, identity links across platforms, and a hunt that shows what is rare.
+- [Threat intelligence and indicators](https://aertun.github.io/intelligence/): Import indicators of compromise from STIX 2.1 bundles or plain lists, add them one at a time, and see which events and findings they match.
 
 ## Detection
 
-- [Detection rules, Sigma and correlations](https://aeroprove.github.io/detections/): Write detection rules with fixtures, import Sigma, trial a rule before it reaches the queue, correlate across platforms, and suppress noise with an end date.
-- [Automations](https://aeroprove.github.io/automations/): Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.
-- [Connectors, log sources and feeds](https://aeroprove.github.io/connectors/): Read Okta, Entra ID, GitHub, KnowBe4, Vanta and more through their APIs, map logs from 17 platforms to one shape, and receive SSF, CAEP and webhook feeds.
+- [Detection rules, Sigma and correlations](https://aertun.github.io/detections/): Write detection rules with fixtures, import Sigma, trial a rule before it reaches the queue, correlate across platforms, and suppress noise with an end date.
+- [Automations](https://aertun.github.io/automations/): Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.
+- [Connectors, log sources and feeds](https://aertun.github.io/connectors/): Read Okta, Entra ID, GitHub, KnowBe4, Vanta and more through their APIs, map logs from 17 platforms to one shape, and receive SSF, CAEP and webhook feeds.
 
 ## Exposure
 
-- [Vulnerability management](https://aeroprove.github.io/vulnerabilities/): Rank vulnerabilities with CISA KEV and EPSS, decide them with SSVC, publish OpenVEX, scan SBOMs against OSV, import SARIF, and plan upgrades clearing most risk.
-- [Estate, workforce risk and reminders](https://aeroprove.github.io/workforce/): Join who works here with their devices, training and accounts across your tools, see where coverage is missing, send reminders, and review vendors and access.
+- [Vulnerability management](https://aertun.github.io/vulnerabilities/): Rank vulnerabilities with CISA KEV and EPSS, decide them with SSVC, publish OpenVEX, scan SBOMs against OSV, import SARIF, and plan upgrades clearing most risk.
+- [Estate, workforce risk and reminders](https://aertun.github.io/workforce/): Join who works here with their devices, training and accounts across your tools, see where coverage is missing, send reminders, and review vendors and access.
 
 ## Administration
 
-- [People and access](https://aeroprove.github.io/people/): Grant roles and jobs on a path, deny what a broader grant would allow, explain any decision, provision people with SCIM, and issue tokens that end.
-- [Roles and separation of duties](https://aeroprove.github.io/roles/): Four roles in a ladder (viewer, analyst, responder, admin), three jobs beside it (engineer, vuln-manager, auditor), and duties kept apart so nobody acts alone.
-- [Single sign-on](https://aeroprove.github.io/sso/): Sign in through OpenID Connect or SAML. Single sign-on counts as two factors only when the identity provider says it used them, or a passkey is asked for.
-- [Passkeys, enrolment and recovery](https://aeroprove.github.io/passkeys/): Sign in with a passkey that checks it is you, add one through a one-time enrolment link, lock out failed sign-ins by place, and recover without a password.
-- [Settings](https://aeroprove.github.io/settings/): Every AeroProve setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and bounds no reason steps past.
-- [The audit log](https://aeroprove.github.io/audit/): An append-only audit log: a hash chain, a Merkle tree, heads signed with Ed25519 and ML-DSA, anchored to Bitcoin, written by its own process, streamed out.
-- [How AeroProve defends itself](https://aeroprove.github.io/security/): What AeroProve may connect to and why, credentials sealed in a vault, a separate log writer, two factors for all, session limits and an AI that only suggests.
+- [People and access](https://aertun.github.io/people/): Grant roles and jobs on a path, deny what a broader grant would allow, explain any decision, provision people with SCIM, and issue tokens that end.
+- [Roles and separation of duties](https://aertun.github.io/roles/): Four roles in a ladder (viewer, analyst, responder, admin), three jobs beside it (engineer, vuln-manager, auditor), and duties kept apart so nobody acts alone.
+- [Single sign-on](https://aertun.github.io/sso/): Sign in through OpenID Connect or SAML. Single sign-on counts as two factors only when the identity provider says it used them, or a passkey is asked for.
+- [Passkeys, enrolment and recovery](https://aertun.github.io/passkeys/): Sign in with a passkey that checks it is you, add one through a one-time enrolment link, lock out failed sign-ins by place, and recover without a password.
+- [Settings](https://aertun.github.io/settings/): Every aertun setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and bounds no reason steps past.
+- [The audit log](https://aertun.github.io/audit/): An append-only audit log: a hash chain, a Merkle tree, heads signed with Ed25519 and ML-DSA, anchored to Bitcoin, written by its own process, streamed out.
+- [How aertun defends itself](https://aertun.github.io/security/): What aertun may connect to and why, credentials sealed in a vault, a separate log writer, two factors for all, session limits and an AI that only suggests.
 
 ## Reference
 
-- [The command line](https://aeroprove.github.io/cli/): Every AeroProve command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root and --token for identity.
-- [AI agents over MCP](https://aeroprove.github.io/mcp/): Connect an AI agent to AeroProve over the Model Context Protocol: eight operations behind four tools, to read findings and propose decisions, never to act.
-- [Licence: Apache-2.0](https://aeroprove.github.io/licence/): AeroProve is open source under the Apache License 2.0. Use it, change it, embed it in your own product and sell it, with no licence key and nothing held back.
+- [The command line](https://aertun.github.io/cli/): Every aertun command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root and --token for identity.
+- [AI agents over MCP](https://aertun.github.io/mcp/): Connect an AI agent to aertun over the Model Context Protocol: eight operations behind four tools, to read findings and propose decisions, never to act.
+- [Licence: Apache-2.0](https://aertun.github.io/licence/): aertun is open source under the Apache License 2.0. Use it, change it, embed it in your own product and sell it, with no licence key and nothing held back.

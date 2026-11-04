@@ -1,5 +1,5 @@
-# Every guide the AeroProve console links to: docSections in internal/admin/nav.go
-# in the AeroProve repository. A Help link is DocsBase + slug + "/", so each line
+# Every guide the aertun console links to: docSections in internal/admin/nav.go
+# in the aertun repository. A Help link is DocsBase + slug + "/", so each line
 # must be a page here; `go run ./gen -check` fails the build if one is not.
 #
 # Renaming a guide means changing it in both repositories, in the same change

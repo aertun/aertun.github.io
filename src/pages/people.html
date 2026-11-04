@@ -1,27 +1,27 @@
 <!--
 title: People and access
 short: People
-seo: AeroProve access control: grants, paths and provisioning
+seo: aertun access control: grants, paths and provisioning
 description: Grant roles and jobs on a path, deny what a broader grant would allow, explain any decision, provision people with SCIM, and issue tokens that end.
 lead: Who may do what, granted on a path, ending when it should.
 icon: people
 screens: People, Provisioning
 updated: 2026-10-23
 -->
-<pre><code>aeroprove auth grant sam@example.com analyst
-aeroprove auth grant lee@example.com engineer --for 30d
-aeroprove auth deny sam@example.com responder --on /security/vulns
-aeroprove auth explain sam@example.com respond
-aeroprove auth list</code></pre>
+<pre><code>aertun auth grant sam@example.com analyst
+aertun auth grant lee@example.com engineer --for 30d
+aertun auth deny sam@example.com responder --on /security/vulns
+aertun auth explain sam@example.com respond
+aertun auth list</code></pre>
 <p><code>explain</code> walks every binding and says which one decided, and why the others did not. See <a href="/roles/">Roles</a> for what each role may do.</p>
 <h2 id="provisioning">Provisioning with SCIM</h2>
-<pre><code>aeroprove scim token
-aeroprove scim map security-analysts analyst
-aeroprove scim status</code></pre>
+<pre><code>aertun scim token
+aertun scim map security-analysts analyst
+aertun scim status</code></pre>
 <p>The identity provider adds, changes and removes people; a group is mapped to a role or a job.</p>
 <h2 id="tokens">Tokens</h2>
-<pre><code>aeroprove token issue ci --principal ci-bot
-aeroprove token list
-aeroprove token revoke ID
-aeroprove token stale</code></pre>
+<pre><code>aertun token issue ci --principal ci-bot
+aertun token list
+aertun token revoke ID
+aertun token stale</code></pre>
 <p>A token is shown once and stored only as a hash. An administrator's token takes a second administrator.</p>

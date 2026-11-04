@@ -3,40 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AeroProve SOAR automations: watch, ask or act | AeroProve</title>
+<title>aertun SOAR automations: watch, ask or act | aertun</title>
 <meta name="description" content="Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.">
-<link rel="canonical" href="https://aeroprove.github.io/automations/">
+<link rel="canonical" href="https://aertun.github.io/automations/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f8fafd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131314" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="AeroProve manual">
-<meta property="og:title" content="AeroProve SOAR automations: watch, ask or act">
+<meta property="og:site_name" content="aertun manual">
+<meta property="og:title" content="aertun SOAR automations: watch, ask or act">
 <meta property="og:description" content="Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.">
-<meta property="og:url" content="https://aeroprove.github.io/automations/">
-<meta property="og:image" content="https://aeroprove.github.io/assets/social.png">
+<meta property="og:url" content="https://aertun.github.io/automations/">
+<meta property="og:image" content="https://aertun.github.io/assets/social.png">
 <meta property="og:locale" content="en_GB">
 <meta property="article:modified_time" content="2026-10-23">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AeroProve SOAR automations: watch, ask or act">
+<meta name="twitter:title" content="aertun SOAR automations: watch, ask or act">
 <meta name="twitter:description" content="Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.">
-<meta name="twitter:image" content="https://aeroprove.github.io/assets/social.png">
+<meta name="twitter:image" content="https://aertun.github.io/assets/social.png">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/mark.png">
-<link rel="preload" href="/assets/fonts/aeroprove-ui.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/aertun-ui.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/docs.css">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script>try{var t=localStorage.getItem("vg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")</script>
 <script src="/assets/docs.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aeroprove.github.io/#project","@type":"Organization","logo":"https://aeroprove.github.io/assets/mark.png","name":"The AeroProve project","sameAs":["https://github.com/AeroProve/AeroProve"],"url":"https://github.com/AeroProve"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"AeroProve"},"author":{"@id":"https://aeroprove.github.io/#project"},"dateModified":"2026-10-23","description":"Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.","headline":"Automations","image":"https://aeroprove.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"AeroProve manual","url":"https://aeroprove.github.io/"},"mainEntityOfPage":"https://aeroprove.github.io/automations/","publisher":{"@id":"https://aeroprove.github.io/#project"},"url":"https://aeroprove.github.io/automations/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aeroprove.github.io/","name":"AeroProve manual","position":1},{"@type":"ListItem","item":"https://aeroprove.github.io/#detection","name":"Detection","position":2},{"@type":"ListItem","name":"Automations","position":3}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-10-23","description":"Automation rules of the form when this happens, do this, in watch, ask or act mode, with limits, approvals by a second person, and sign-in rules for step-up.","headline":"Automations","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/automations/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/automations/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#detection","name":"Detection","position":2},{"@type":"ListItem","name":"Automations","position":3}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the content</a>
 <header class="bar">
   <button class="iconbutton menu-toggle" type="button" aria-controls="drawer" aria-expanded="false" aria-label="Open the menu"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z"/></svg></button>
-  <a class="brand" href="/" aria-label="AeroProve manual, home">
+  <a class="brand" href="/" aria-label="aertun manual, home">
     <svg class="mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path class="mark-first" d="M2.47 4.19L7.97 16.19A1.90 1.90 0 0 0 11.43 14.61L5.93 2.61A1.90 1.90 0 0 0 2.47 4.19Z M12.00 3.80Q12.00 7.00 15.20 7.00Q12.00 7.00 12.00 10.20Q12.00 7.00 8.80 7.00Q12.00 7.00 12.00 3.80Z"/><path class="mark-second" d="M18.07 2.61L12.57 14.61A1.90 1.90 0 0 0 16.03 16.19L21.53 4.19A1.90 1.90 0 0 0 18.07 2.61Z M9.20 19.80A2.80 2.80 0 1 0 14.80 19.80A2.80 2.80 0 1 0 9.20 19.80Z"/></svg>
-    <span class="brand-name">AeroProve</span><span class="brand-sub">manual</span>
+    <span class="brand-name">aertun</span><span class="brand-sub">manual</span>
   </a>
   <div class="search" role="search" hidden>
     <label class="sr" for="q">Search the manual</label>
@@ -46,7 +46,7 @@
     <ul id="results" class="results" role="listbox" aria-label="Search results" hidden></ul>
   </div>
   <nav class="bar-links" aria-label="Elsewhere">
-    <a class="btn btn-text" href="https://github.com/AeroProve/AeroProve"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m193-479 155 155q11 11 11 28t-11 28q-11 11-28 11t-28-11L108-452q-6-6-8.5-13T97-480q0-8 2.5-15t8.5-13l184-184q12-12 28.5-12t28.5 12q12 12 12 28.5T349-635L193-479Zm574-2L612-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L668-268q-12 12-28 11.5T612-269q-12-12-12-28.5t12-28.5l155-155Z"/></svg><span>GitHub</span></a>
+    <a class="btn btn-text" href="https://github.com/aertun/aertun"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m193-479 155 155q11 11 11 28t-11 28q-11 11-28 11t-28-11L108-452q-6-6-8.5-13T97-480q0-8 2.5-15t8.5-13l184-184q12-12 28.5-12t28.5 12q12 12 12 28.5T349-635L193-479Zm574-2L612-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L668-268q-12 12-28 11.5T612-269q-12-12-12-28.5t12-28.5l155-155Z"/></svg><span>GitHub</span></a>
   </nav>
   <button class="iconbutton theme-toggle" type="button" aria-label="Appearance: follow the system" hidden><span class="ti ti-system"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm40-83q119-15 199.5-104.5T800-480q0-123-80.5-212.5T520-797v634Z"/></svg></span><span class="ti ti-light"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm720 0q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM480-760q-17 0-28.5-11.5T440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760Zm0 720q-17 0-28.5-11.5T440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40ZM226-678l-43-42q-12-11-11.5-28t11.5-29q12-12 29-12t28 12l42 43q11 12 11 28t-11 28q-11 12-27.5 11.5T226-678Zm494 495-42-43q-11-12-11-28.5t11-27.5q11-12 27.5-11.5T734-282l43 42q12 11 11.5 28T777-183q-12 12-29 12t-28-12Zm-42-495q-12-11-11.5-27.5T678-734l42-43q11-12 28-11.5t29 11.5q12 12 12 29t-12 28l-43 42q-12 11-28 11t-28-11ZM183-183q-12-12-12-29t12-28l43-42q12-11 28.5-11t27.5 11q12 11 11.5 27.5T282-226l-42 43q-11 12-28 11.5T183-183Zm297-297Z"/></svg></span><span class="ti ti-dark"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-120q-151 0-255.5-104.5T120-480q0-138 90-239.5T440-838q13-2 23 3.5t16 14.5q6 9 6.5 21t-7.5 23q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q11-7 22.5-6.5T819-479q10 5 15.5 15t3.5 24q-14 138-117.5 229T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg></span></button>
 </header>
@@ -121,22 +121,22 @@
     <p class="screens"><span class="screens-label">In the console</span><span class="chip">Automations</span><span class="chip">Sign-ins</span></p>
   </header>
   <div class="prose">
-<pre><code>aeroprove automate templates
-aeroprove automate add TEMPLATE
-aeroprove automate mode ID ask
-aeroprove automate runs
-aeroprove automate approve RUN</code></pre>
+<pre><code>aertun automate templates
+aertun automate add TEMPLATE
+aertun automate mode ID ask
+aertun automate runs
+aertun automate approve RUN</code></pre>
 <ul>
 <li><strong>Watch</strong> records what the rule would do.</li>
 <li><strong>Ask</strong> waits for a person to approve each run.</li>
 <li><strong>Act</strong> does it at once, within an hourly limit per rule, so one noisy source cannot suspend everybody.</li>
 </ul>
-<p>Whoever wrote a rule does not approve the runs it holds. Approving a run that acts on people's access takes an administrator of all of AeroProve. Rules about sign-ins can tell an office or a VPN from anywhere else:</p>
-<pre><code>aeroprove geo network add 198.51.100.0/24 head-office --kind office
-aeroprove geo status</code></pre>
+<p>Whoever wrote a rule does not approve the runs it holds. Approving a run that acts on people's access takes an administrator of all of aertun. Rules about sign-ins can tell an office or a VPN from anywhere else:</p>
+<pre><code>aertun geo network add 198.51.100.0/24 head-office --kind office
+aertun geo status</code></pre>
   </div>
   <footer class="guide-foot">
-    <p class="updated">Updated 2026-10-23 · <a href="https://github.com/AeroProve/aeroprove.github.io/blob/main/src/pages/automations.html">Edit this page on GitHub</a></p>
+    <p class="updated">Updated 2026-10-23 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/automations.html">Edit this page on GitHub</a></p>
     <nav class="pager" aria-label="Previous and next guides">
       <a class="pager-prev" href="/detections/" rel="prev"><span class="pager-dir"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m313-440 196 196q12 12 11.5 28T508-188q-12 11-28 11.5T452-188L188-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l264-264q11-11 27.5-11t28.5 11q12 12 12 28.5T508-715L313-520h447q17 0 28.5 11.5T800-480q0 17-11.5 28.5T760-440H313Z"/></svg>Previous</span><span class="pager-title">Detection rules, Sigma and correlations</span></a>
       <a class="pager-next" href="/connectors/" rel="next"><span class="pager-dir">Next<svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z"/></svg></span><span class="pager-title">Connectors, log sources and feeds</span></a>
@@ -147,8 +147,8 @@ aeroprove geo status</code></pre>
 </div>
 <footer class="foot">
   <div class="foot-inner">
-    <p><strong>AeroProve</strong> is the AI-agent wind tunnel: breach-and-attack simulation for deployed agent stacks, on a complete detection engine. One Go binary, no third-party dependencies.</p>
-    <p>Open source under the <a href="/licence/">Apache License 2.0</a>. This manual describes <code>main</code>. <a href="https://github.com/AeroProve/AeroProve">Source</a> · <a href="https://github.com/AeroProve/AeroProve/releases">Releases</a> · <a href="https://github.com/AeroProve/AeroProve/blob/main/SECURITY.md">Report a vulnerability</a> · <a href="/llms.txt">llms.txt</a></p>
+    <p><strong>aertun</strong> is the AI-agent wind tunnel: breach-and-attack simulation for deployed agent stacks, on a complete detection engine. One Go binary, no third-party dependencies.</p>
+    <p>Open source under the <a href="/licence/">Apache License 2.0</a>. This manual describes <code>main</code>. <a href="https://github.com/aertun/aertun">Source</a> · <a href="https://github.com/aertun/aertun/releases">Releases</a> · <a href="https://github.com/aertun/aertun/blob/main/SECURITY.md">Report a vulnerability</a> · <a href="/llms.txt">llms.txt</a></p>
   </div>
 </footer>
 </body>

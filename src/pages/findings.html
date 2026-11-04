@@ -1,7 +1,7 @@
 <!--
 title: Findings and the AI analyst
 short: Findings
-seo: AeroProve findings: a ranked queue with an AI analyst
+seo: aertun findings: a ranked queue with an AI analyst
 description: One queue of security findings ranked by risk, decisions kept and replayable, and an AI analyst that suggests a verdict from counts without ever recording one.
 lead: One queue, ranked by risk, and every decision kept.
 icon: findings
@@ -9,12 +9,12 @@ screens: Findings, Risk
 updated: 2026-10-23
 -->
 <ol class="steps">
-<li><h3>Read the queue</h3><pre><code>aeroprove finding list --state open
-aeroprove finding risk
-aeroprove finding story ID</code></pre></li>
-<li><h3>Let the analyst take the first pass</h3><pre><code>aeroprove analyst plan
-aeroprove analyst triage --limit 20 --dry-run</code></pre><p>The model is any OpenAI-compatible endpoint, set with <code>VAIGIL_MODEL_URL</code>, <code>VAIGIL_MODEL_KEY</code> and <code>VAIGIL_MODEL</code>. Without one, findings are triaged by people alone.</p></li>
-<li><h3>Decide</h3><pre><code>aeroprove finding decide ID false-positive</code></pre><p>The states are open, triaged, accepted, fixed, stale, false-positive and benign.</p></li>
+<li><h3>Read the queue</h3><pre><code>aertun finding list --state open
+aertun finding risk
+aertun finding story ID</code></pre></li>
+<li><h3>Let the analyst take the first pass</h3><pre><code>aertun analyst plan
+aertun analyst triage --limit 20 --dry-run</code></pre><p>The model is any OpenAI-compatible endpoint, set with <code>VAIGIL_MODEL_URL</code>, <code>VAIGIL_MODEL_KEY</code> and <code>VAIGIL_MODEL</code>. Without one, findings are triaged by people alone.</p></li>
+<li><h3>Decide</h3><pre><code>aertun finding decide ID false-positive</code></pre><p>The states are open, triaged, accepted, fixed, stale, false-positive and benign.</p></li>
 </ol>
 <h2 id="analyst">What a log line cannot do to the analyst</h2>
 <p>A finding's evidence is log text, written by whoever reached the log. So nothing depends on the model declining an instruction, and the worst a planted line can do is make a suggestion wrong:</p>
@@ -24,6 +24,6 @@ aeroprove analyst triage --limit 20 --dry-run</code></pre><p>The model is any Op
 <li>Its answer is one word from a closed set with a confidence, shown only above a threshold. The reason a person reads is assembled from the counts, never from what the model wrote.</li>
 <li>Personal data and credentials are masked before the prompt leaves and restored in the answer.</li>
 </ul>
-<p>A person records the verdict; the analyst has no way to. <code>aeroprove analyst eval --k 3</code> measures it against what people decided.</p>
+<p>A person records the verdict; the analyst has no way to. <code>aertun analyst eval --k 3</code> measures it against what people decided.</p>
 <h2 id="replay">Replay</h2>
-<p><code>aeroprove detect replay</code> runs today's rules over the events again and says which decisions would now be different, and <code>aeroprove detect learn FINDING</code> turns a decision into a fixture.</p>
+<p><code>aertun detect replay</code> runs today's rules over the events again and says which decisions would now be different, and <code>aertun detect learn FINDING</code> turns a decision into a fixture.</p>

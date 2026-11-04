@@ -1,34 +1,34 @@
 <!--
 title: Get started
 short: Get started
-seo: Get started with AeroProve: install and first detections
-description: Build AeroProve, create a store and its first administrator, sign in with a passkey, then connect a source, install detections and decide who else may do what.
+seo: Get started with aertun: install and first detections
+description: Build aertun, create a store and its first administrator, sign in with a passkey, then connect a source, install detections and decide who else may do what.
 lead: From nothing to a running console and your first detections.
 icon: start
 screens: Today, Get started, Find
 updated: 2026-10-23
 -->
 <ol class="steps">
-<li><h3>Build it</h3><p>Go 1.27 or later is the only requirement. There is nothing else to fetch.</p><pre><code>git clone https://github.com/AeroProve/AeroProve aeroprove &amp;&amp; cd aeroprove
-go build -o aeroprove ./cmd/aeroprove</code></pre></li>
-<li><h3>Create a store and its first administrator</h3><pre><code>./aeroprove init --admin you@example.com</code></pre><p>It prints a one-time link that adds that person's passkey and does nothing else. There is no default password and no default account.</p></li>
-<li><h3>Start the console and add your passkey</h3><pre><code>./aeroprove serve</code></pre><p>The console listens on <code>127.0.0.1:8080</code>. Open the link <code>init</code> printed, add a passkey, and you are signed in.</p></li>
+<li><h3>Build it</h3><p>Go 1.27 or later is the only requirement. There is nothing else to fetch.</p><pre><code>git clone https://github.com/aertun/aertun aertun &amp;&amp; cd aertun
+go build -o aertun ./cmd/aertun</code></pre></li>
+<li><h3>Create a store and its first administrator</h3><pre><code>./aertun init --admin you@example.com</code></pre><p>It prints a one-time link that adds that person's passkey and does nothing else. There is no default password and no default account.</p></li>
+<li><h3>Start the console and add your passkey</h3><pre><code>./aertun serve</code></pre><p>The console listens on <code>127.0.0.1:8080</code>. Open the link <code>init</code> printed, add a passkey, and you are signed in.</p></li>
 <li><h3>Follow Get started</h3><p><strong>Get started</strong> in the console walks four things: bring events in, decide what counts as wrong, know the estate, and decide who else may do what. It reads the store rather than telling a story, so each step is ticked when it is done.</p></li>
 </ol>
 <h2 id="terminal">From a terminal</h2>
 <p>Once anybody is an administrator, a command run from a terminal needs a token, which proves who is running it. Issuing an administrator's token takes a second administrator, so ask for yours, approve it in the console, where <strong>Approvals</strong> lists it, and collect it within a day:</p>
-<pre><code>aeroprove token issue you --principal you@example.com --role admin
-aeroprove pending redeem ID</code></pre>
-<p>The token is printed once. Keep it in <code>~/.aeroprove/token</code>, or pass it as <code>VAIGIL_TOKEN</code> or <code>--token</code>. The same first steps, from the terminal:</p>
-<pre><code>aeroprove vault enable
-aeroprove connect add okta --org example
-VAIGIL_CONNECT_SECRET=... aeroprove connect secret okta
-aeroprove collect run
-aeroprove detect pack install
-aeroprove detect run
-aeroprove estate build
-aeroprove auth enrol sam@example.com
-aeroprove auth grant sam@example.com analyst</code></pre>
+<pre><code>aertun token issue you --principal you@example.com --role admin
+aertun pending redeem ID</code></pre>
+<p>The token is printed once. Keep it in <code>~/.aertun/token</code>, or pass it as <code>VAIGIL_TOKEN</code> or <code>--token</code>. The same first steps, from the terminal:</p>
+<pre><code>aertun vault enable
+aertun connect add okta --org example
+VAIGIL_CONNECT_SECRET=... aertun connect secret okta
+aertun collect run
+aertun detect pack install
+aertun detect run
+aertun estate build
+aertun auth enrol sam@example.com
+aertun auth grant sam@example.com analyst</code></pre>
 <p>See <a href="/connectors/">Connectors and feeds</a>, <a href="/detections/">Detections</a>, <a href="/workforce/">Estate and workforce</a> and <a href="/people/">People</a> for each.</p>
 <h2 id="today">Today</h2>
 <p>The first screen after signing in is <strong>Today</strong>: what is waiting for you to decide, then what is wrong in the parts of the estate you work in.</p>

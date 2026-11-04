@@ -1,24 +1,24 @@
 <!--
 title: Estate, workforce risk and reminders
 short: Estate and workforce
-seo: AeroProve workforce risk: the estate, devices and reminders
+seo: aertun workforce risk: the estate, devices and reminders
 description: Join who works here with their devices, training and accounts across your tools, see where coverage is missing, send reminders, and review vendors and access.
 lead: Who works here, what they use, how exposed each is, and reminders that close the gaps.
 icon: workforce
 screens: Workforce risk
 updated: 2026-10-23
 -->
-<pre><code>aeroprove estate build
-aeroprove estate scores --limit 20
-aeroprove workforce coverage
-aeroprove workforce gaps
-aeroprove remind preview
-aeroprove remind send</code></pre>
+<pre><code>aertun estate build
+aertun estate scores --limit 20
+aertun workforce coverage
+aertun workforce gaps
+aertun remind preview
+aertun remind send</code></pre>
 <p>The estate joins the people your identity provider knows with the devices, training records and accounts other tools report, leavers included. A person's score is a file on an employee, so the Workforce risk screen is for administrators only, and the MCP interface shows only numbers, never names.</p>
 <h2 id="vendors">Vendors and access reviews</h2>
-<pre><code>aeroprove vendor reconcile
-aeroprove vendor review ID
-aeroprove access open q4 identities.jsonl --scope okta,github --due 2026-12-10
-aeroprove access decide q4 okta:00u1abc revoke
-aeroprove access close q4 identities-after.jsonl</code></pre>
+<pre><code>aertun vendor reconcile
+aertun vendor review ID
+aertun access open q4 identities.jsonl --scope okta,github --due 2026-12-10
+aertun access decide q4 okta:00u1abc revoke
+aertun access close q4 identities-after.jsonl</code></pre>
 <p>Each account is kept, revoked or reduced. A review closes on a later import, which shows whether what was decided was done; without one, a revocation is reported as unverified.</p>

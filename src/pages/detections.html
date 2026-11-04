@@ -1,7 +1,7 @@
 <!--
 title: Detection rules, Sigma and correlations
 short: Detections
-seo: AeroProve detection engineering: rules, Sigma, trial ring
+seo: aertun detection engineering: rules, Sigma, trial ring
 description: Write detection rules with fixtures, import Sigma, trial a rule before it reaches the queue, correlate across platforms, and suppress noise with an end date.
 lead: Rules with fixtures, Sigma import, a trial ring, and suppressions that end.
 icon: detections
@@ -9,12 +9,12 @@ screens: Detections
 updated: 2026-10-23
 -->
 <ol class="steps">
-<li><h3>Install the shipped rules</h3><pre><code>aeroprove detect pack install
-aeroprove detect test</code></pre><p>Each rule carries fixtures it must match and must not, MITRE ATT&amp;CK technique IDs, and a line on what it does not catch.</p></li>
-<li><h3>Bring your own, in the open standard</h3><pre><code>aeroprove sigma import ./rules</code></pre></li>
-<li><h3>Trial a rule before it reaches the queue</h3><pre><code>aeroprove detect ring RULE trial --because "new rule"
-aeroprove detect stats
-aeroprove detect ring RULE live --because "a week without a false positive"</code></pre><p>In the trial ring a rule records what it would raise, and its record earns it the queue.</p></li>
-<li><h3>Suppress, until a date</h3><pre><code>aeroprove detect suppress RULE user.name=svc-backup --owner dana --until 2026-12-31 --because "known job"</code></pre></li>
+<li><h3>Install the shipped rules</h3><pre><code>aertun detect pack install
+aertun detect test</code></pre><p>Each rule carries fixtures it must match and must not, MITRE ATT&amp;CK technique IDs, and a line on what it does not catch.</p></li>
+<li><h3>Bring your own, in the open standard</h3><pre><code>aertun sigma import ./rules</code></pre></li>
+<li><h3>Trial a rule before it reaches the queue</h3><pre><code>aertun detect ring RULE trial --because "new rule"
+aertun detect stats
+aertun detect ring RULE live --because "a week without a false positive"</code></pre><p>In the trial ring a rule records what it would raise, and its record earns it the queue.</p></li>
+<li><h3>Suppress, until a date</h3><pre><code>aertun detect suppress RULE user.name=svc-backup --owner dana --until 2026-12-31 --because "known job"</code></pre></li>
 </ol>
-<p>Correlations raise a finding about several events across rules and platforms, once their window closes; <code>aeroprove correlate demo</code> shows one end to end.</p>
+<p>Correlations raise a finding about several events across rules and platforms, once their window closes; <code>aertun correlate demo</code> shows one end to end.</p>

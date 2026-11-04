@@ -1,30 +1,30 @@
 <!--
 title: The audit log
 short: Audit log
-seo: AeroProve audit log: signed, anchored and streamed to a SIEM
+seo: aertun audit log: signed, anchored and streamed to a SIEM
 description: An append-only audit log: a hash chain, a Merkle tree, heads signed with Ed25519 and ML-DSA, anchored to Bitcoin, written by its own process, streamed out.
 lead: An append-only, signed, anchored record, and a stream of it to another SIEM.
 icon: logs
 screens: Log
 updated: 2026-10-23
 -->
-<pre><code>aeroprove auditlog verify
-aeroprove auditlog show SEQ
-aeroprove auditlog prove SEQ
-aeroprove auditlog head --save
-aeroprove auditlog consistency</code></pre>
+<pre><code>aertun auditlog verify
+aertun auditlog show SEQ
+aertun auditlog prove SEQ
+aertun auditlog head --save
+aertun auditlog consistency</code></pre>
 <p>Every change is a record in a hash chain, with a Merkle tree over it. A tree head is signed with Ed25519 and ML-DSA (post-quantum), and <code>prove</code> gives a receipt anybody can check against a head.</p>
 <h2 id="anchor">Anchoring</h2>
-<pre><code>aeroprove auditlog anchor submit
-aeroprove auditlog anchor upgrade
-aeroprove auditlog anchor status</code></pre>
+<pre><code>aertun auditlog anchor submit
+aertun auditlog anchor upgrade
+aertun auditlog anchor status</code></pre>
 <p>The head is committed to Bitcoin through OpenTimestamps, so rewriting history is detectable by somebody who never trusted the operator.</p>
 <h2 id="logd">Its own writer</h2>
-<pre><code>aeroprove logd
-aeroprove logd status</code></pre>
+<pre><code>aertun logd
+aertun logd status</code></pre>
 <p>Run as its own account, the log writer is the only process that writes the log, so the console cannot rewrite what it recorded. A decision that is nothing but its record is reported as failed when the record cannot be written.</p>
 <h2 id="stream">Streaming to a SIEM</h2>
-<pre><code>aeroprove config set siem.stream.url https://siem.example.com/ingest
-aeroprove siem stream key
-aeroprove siem stream status</code></pre>
-<p>Batches of OCSF, each following the last exactly, each carrying a signed tree head and an HTTP message signature (RFC 9421), so the receiver can prove nothing was dropped or changed. <code>aeroprove siem ocsf</code>, <code>cef</code> and <code>jsonl</code> export the log as files.</p>
+<pre><code>aertun config set siem.stream.url https://siem.example.com/ingest
+aertun siem stream key
+aertun siem stream status</code></pre>
+<p>Batches of OCSF, each following the last exactly, each carrying a signed tree head and an HTTP message signature (RFC 9421), so the receiver can prove nothing was dropped or changed. <code>aertun siem ocsf</code>, <code>cef</code> and <code>jsonl</code> export the log as files.</p>

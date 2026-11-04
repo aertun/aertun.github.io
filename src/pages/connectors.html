@@ -1,7 +1,7 @@
 <!--
 title: Connectors, log sources and feeds
 short: Connectors and feeds
-seo: AeroProve connectors: Okta, Entra ID, GitHub and log sources
+seo: aertun connectors: Okta, Entra ID, GitHub and log sources
 description: Read Okta, Entra ID, GitHub, KnowBe4, Vanta and more through their APIs, map logs from 17 platforms to one shape, and receive SSF, CAEP and webhook feeds.
 lead: Read other tools through their APIs, map their logs, and take what they push.
 icon: feeds
@@ -9,23 +9,23 @@ screens: Feeds
 updated: 2026-10-23
 -->
 <h2 id="connectors">Connectors</h2>
-<p>A connector reads one tool through its API, over only the endpoints its manifest declares, with a credential sealed under AeroProve's keyring. With no keyring, no credential can be stored.</p>
-<pre><code>aeroprove vault enable
-aeroprove connect catalogue
-aeroprove connect add okta --org example
-aeroprove connect check okta
-VAIGIL_CONNECT_SECRET=... aeroprove connect secret okta
-aeroprove connect run okta --save</code></pre>
+<p>A connector reads one tool through its API, over only the endpoints its manifest declares, with a credential sealed under aertun's keyring. With no keyring, no credential can be stored.</p>
+<pre><code>aertun vault enable
+aertun connect catalogue
+aertun connect add okta --org example
+aertun connect check okta
+VAIGIL_CONNECT_SECRET=... aertun connect secret okta
+aertun connect run okta --save</code></pre>
 <p>A region is chosen from the connector's own list, never typed as a hostname, so adding a connector cannot point a credential at another machine. The catalogue says which credential each needs and the least it should be allowed to do.</p>
-<p>Shipped connectors: Okta, Microsoft Entra ID, GitHub, EVM smart contracts through a Blockscout explorer, KnowBe4, ManageEngine Endpoint Central, ManageEngine MDM Plus and Vanta. <code>aeroprove connect probe</code> shows the shape of a response, never its values.</p>
+<p>Shipped connectors: Okta, Microsoft Entra ID, GitHub, EVM smart contracts through a Blockscout explorer, KnowBe4, ManageEngine Endpoint Central, ManageEngine MDM Plus and Vanta. <code>aertun connect probe</code> shows the shape of a response, never its values.</p>
 <h2 id="collection">Collection</h2>
-<pre><code>aeroprove collect run
-aeroprove collect file aws/cloudtrail trail.json
-aeroprove collect auto 15m</code></pre>
-<p>Logs are mapped to one shape from AWS CloudTrail, Microsoft Entra ID, Microsoft Azure, Google Workspace, Google Cloud, Okta, Duo, CrowdStrike Falcon, Jamf Pro, GitHub, Kubernetes, Cloudflare, Salesforce, Slack, Snowflake, Linux auditd and EVM chains. <code>aeroprove source add</code> adds a mapping of your own, checked against a sample, and <code>aeroprove telemetry check</code> says whether what it produces can be used at all.</p>
-<h2 id="feeds">Feeds pushed to AeroProve</h2>
-<pre><code>aeroprove inbound add ssf corp-idp
-aeroprove inbound add okta okta-hooks
-aeroprove inbound add webhook ci
-aeroprove inbound status NAME</code></pre>
+<pre><code>aertun collect run
+aertun collect file aws/cloudtrail trail.json
+aertun collect auto 15m</code></pre>
+<p>Logs are mapped to one shape from AWS CloudTrail, Microsoft Entra ID, Microsoft Azure, Google Workspace, Google Cloud, Okta, Duo, CrowdStrike Falcon, Jamf Pro, GitHub, Kubernetes, Cloudflare, Salesforce, Slack, Snowflake, Linux auditd and EVM chains. <code>aertun source add</code> adds a mapping of your own, checked against a sample, and <code>aertun telemetry check</code> says whether what it produces can be used at all.</p>
+<h2 id="feeds">Feeds pushed to aertun</h2>
+<pre><code>aertun inbound add ssf corp-idp
+aertun inbound add okta okta-hooks
+aertun inbound add webhook ci
+aertun inbound status NAME</code></pre>
 <p>A feed's endpoint is <code>/feeds/NAME</code> on the console. Shared Signals (SSF, CAEP, RISC) are verified against the transmitter's keys; webhooks against their secret. What arrives is stored like anything collected, and put to the automations as a signal.</p>

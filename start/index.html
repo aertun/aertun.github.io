@@ -61,6 +61,13 @@
       <li><a href="/concepts/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M360-240h240q17 0 28.5-11.5T640-280q0-17-11.5-28.5T600-320H360q-17 0-28.5 11.5T320-280q0 17 11.5 28.5T360-240Zm0-160h240q17 0 28.5-11.5T640-440q0-17-11.5-28.5T600-480H360q-17 0-28.5 11.5T320-440q0 17 11.5 28.5T360-400ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h287q16 0 30.5 6t25.5 17l194 194q11 11 17 25.5t6 30.5v447q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-440H560q-17 0-28.5-11.5T520-640ZM240-800v200-200 640-640Z"/></svg><span>Glossary</span></a></li>
     </ul>
   </details>
+  <details class="navgroup" data-group="proving-ai-work">
+    <summary><h2>Proving AI work</h2><span class="chev"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-362q-8 0-15-2.5t-13-8.5L268-557q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z"/></svg></span></summary>
+    <ul class="nav">
+      <li><a href="/proofs/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-120q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v560q0 33-23.5 56.5T800-120H160Zm0-80h640v-560H160v560Zm200-80q17 0 28.5-11.5T400-320q0-17-11.5-28.5T360-360H240q-17 0-28.5 11.5T200-320q0 17 11.5 28.5T240-280h120Zm222-193-29-29q-12-12-28-11.5T497-501q-11 12-11.5 28t11.5 28l57 57q12 12 28 12t28-12l142-142q12-12 12-28t-12-28q-12-12-28.5-12T695-586L582-473Zm-222 33q17 0 28.5-11.5T400-480q0-17-11.5-28.5T360-520H240q-17 0-28.5 11.5T200-480q0 17 11.5 28.5T240-440h120Zm0-160q17 0 28.5-11.5T400-640q0-17-11.5-28.5T360-680H240q-17 0-28.5 11.5T200-640q0 17 11.5 28.5T240-600h120ZM160-200v-560 560Z"/></svg><span>Proofs</span></a></li>
+      <li><a href="/windtunnel/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-80q-83 0-141.5-58.5T280-280v-360q-33 0-56.5-23.5T200-720v-80q0-33 23.5-56.5T280-880h400q33 0 56.5 23.5T760-800v80q0 33-23.5 56.5T680-640v360q0 83-58.5 141.5T480-80ZM280-720h400v-80H280v80Zm200 560q50 0 85-35t35-85h-80q-17 0-28.5-11.5T480-320q0-17 11.5-28.5T520-360h80v-80h-80q-17 0-28.5-11.5T480-480q0-17 11.5-28.5T520-520h80v-120H360v360q0 50 35 85t85 35ZM280-720v-80 80Z"/></svg><span>Wind tunnel</span></a></li>
+    </ul>
+  </details>
   <details class="navgroup" data-group="operations">
     <summary><h2>Operations</h2><span class="chev"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-362q-8 0-15-2.5t-13-8.5L268-557q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z"/></svg></span></summary>
     <ul class="nav">
@@ -124,7 +131,7 @@
 <ol class="steps">
 <li><h3 id="build-it">Build it<a class="anchor" href="#build-it" aria-hidden="true" tabindex="-1">#</a></h3><p>Go 1.27 or later is the only requirement. There is nothing else to fetch.</p><pre><code>git clone https://github.com/aertun/aertun aertun &amp;&amp; cd aertun
 go build -o aertun ./cmd/aertun</code></pre></li>
-<li><h3 id="create-a-store-and-its-first-administrator">Create a store and its first administrator<a class="anchor" href="#create-a-store-and-its-first-administrator" aria-hidden="true" tabindex="-1">#</a></h3><pre><code>./aertun init --admin you@example.com</code></pre><p>It prints a one-time link that adds that person's passkey and does nothing else. There is no default password and no default account.</p></li>
+<li><h3 id="create-a-store-and-its-owner">Create a store and its Owner<a class="anchor" href="#create-a-store-and-its-owner" aria-hidden="true" tabindex="-1">#</a></h3><pre><code>./aertun init --owner you@example.com</code></pre><p>It makes you the store's Owner and prints a one-time link that adds your passkey. There is no default password and no default account. Everybody else you add is a collaborator with a role; see <a href="/roles/">Roles</a>.</p></li>
 <li><h3 id="start-the-console-and-add-your-passkey">Start the console and add your passkey<a class="anchor" href="#start-the-console-and-add-your-passkey" aria-hidden="true" tabindex="-1">#</a></h3><pre><code>./aertun serve</code></pre><p>The console listens on <code>127.0.0.1:8080</code>. Open the link <code>init</code> printed, add a passkey, and you are signed in.</p></li>
 <li><h3 id="follow-get-started">Follow Get started<a class="anchor" href="#follow-get-started" aria-hidden="true" tabindex="-1">#</a></h3><p><strong>Get started</strong> in the console walks four things: bring events in, decide what counts as wrong, know the estate, and decide who else may do what. It reads the store rather than telling a story, so each step is ticked when it is done.</p></li>
 </ol>
@@ -132,10 +139,10 @@ go build -o aertun ./cmd/aertun</code></pre></li>
 <p>Once anybody is an administrator, a command run from a terminal needs a token, which proves who is running it. Issuing an administrator's token takes a second administrator, so ask for yours, approve it in the console, where <strong>Approvals</strong> lists it, and collect it within a day:</p>
 <pre><code>aertun token issue you --principal you@example.com --role admin
 aertun pending redeem ID</code></pre>
-<p>The token is printed once. Keep it in <code>~/.aertun/token</code>, or pass it as <code>VAIGIL_TOKEN</code> or <code>--token</code>. The same first steps, from the terminal:</p>
+<p>The token is printed once. Keep it in <code>~/.aertun/token</code>, or pass it as <code>AERTUN_TOKEN</code> or <code>--token</code>. The same first steps, from the terminal:</p>
 <pre><code>aertun vault enable
 aertun connect add okta --org example
-VAIGIL_CONNECT_SECRET=... aertun connect secret okta
+AERTUN_CONNECT_SECRET=... aertun connect secret okta
 aertun collect run
 aertun detect pack install
 aertun detect run
@@ -167,7 +174,7 @@ aertun auth grant sam@example.com analyst</code></pre>
 </div>
 <footer class="foot">
   <div class="foot-inner">
-    <p><strong>aertun</strong> is the AI-agent wind tunnel: breach-and-attack simulation for deployed agent stacks, on a complete detection engine. One Go binary, no third-party dependencies.</p>
+    <p><strong>Aertun</strong> is the proving ground for AI security work: it checks what AI defenders produce against evidence they did not write, and signs the result. One Go binary, no third-party dependencies.</p>
     <p>Open source under the <a href="/licence/">Apache License 2.0</a>. This manual describes <code>main</code>. <a href="https://github.com/aertun/aertun">Source</a> · <a href="https://github.com/aertun/aertun/releases">Releases</a> · <a href="https://github.com/aertun/aertun/blob/main/SECURITY.md">Report a vulnerability</a> · <a href="/llms.txt">llms.txt</a></p>
   </div>
 </footer>

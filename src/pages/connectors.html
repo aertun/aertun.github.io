@@ -14,7 +14,7 @@ updated: 2026-10-23
 aertun connect catalogue
 aertun connect add okta --org example
 aertun connect check okta
-VAIGIL_CONNECT_SECRET=... aertun connect secret okta
+AERTUN_CONNECT_SECRET=... aertun connect secret okta
 aertun connect run okta --save</code></pre>
 <p>A region is chosen from the connector's own list, never typed as a hostname, so adding a connector cannot point a credential at another machine. The catalogue says which credential each needs and the least it should be allowed to do.</p>
 <p>Shipped connectors: Okta, Microsoft Entra ID, GitHub, EVM smart contracts through a Blockscout explorer, KnowBe4, ManageEngine Endpoint Central, ManageEngine MDM Plus and Vanta. <code>aertun connect probe</code> shows the shape of a response, never its values.</p>

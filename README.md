@@ -2,13 +2,14 @@
 
 # aertun.github.io
 
-The manual for [aertun](https://github.com/aertun/aertun), the AI-agent
-wind tunnel: breach-and-attack simulation for deployed agent stacks on a
-complete detection engine, self-hosted in one binary:
+The manual for [Aertun](https://github.com/aertun/aertun), the proving ground
+for AI security work: it checks what AI defenders produce against evidence
+they did not write and signs the result, on a complete security-operations
+core, self-hosted in one binary:
 **[aertun.github.io](https://aertun.github.io/)**.
 
-A guide per page, each with the commands it describes as aertun prints them.
-Every screen in the aertun console has a Help link to its guide.
+A guide per page, each with the commands it describes as Aertun prints them.
+Every screen in the Aertun console has a Help link to its guide.
 
 ## How it is built
 

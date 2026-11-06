@@ -13,7 +13,7 @@ updated: 2026-10-23
 aertun finding risk
 aertun finding story ID</code></pre></li>
 <li><h3>Let the analyst take the first pass</h3><pre><code>aertun analyst plan
-aertun analyst triage --limit 20 --dry-run</code></pre><p>The model is any OpenAI-compatible endpoint, set with <code>VAIGIL_MODEL_URL</code>, <code>VAIGIL_MODEL_KEY</code> and <code>VAIGIL_MODEL</code>. Without one, findings are triaged by people alone.</p></li>
+aertun analyst triage --limit 20 --dry-run</code></pre><p>The model is any OpenAI-compatible endpoint, set with <code>AERTUN_MODEL_URL</code>, <code>AERTUN_MODEL_KEY</code> and <code>AERTUN_MODEL</code>. Without one, findings are triaged by people alone.</p></li>
 <li><h3>Decide</h3><pre><code>aertun finding decide ID false-positive</code></pre><p>The states are open, triaged, accepted, fixed, stale, false-positive and benign.</p></li>
 </ol>
 <h2 id="analyst">What a log line cannot do to the analyst</h2>

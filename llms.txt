@@ -1,6 +1,6 @@
 # aertun
 
-> aertun replays scripted malicious agent sessions through your own telemetry and measures honestly whether your controls caught them. Self-hosted, one binary.
+> Aertun checks what AI defenders produce — detection rules, triage verdicts — against evidence they did not write, and signs the result. Self-hosted, one binary.
 
 aertun is one Go binary with no third-party dependencies, licensed under Apache-2.0. Source: https://github.com/aertun/aertun
 
@@ -9,6 +9,11 @@ aertun is one Go binary with no third-party dependencies, licensed under Apache-
 - [Get started](https://aertun.github.io/start/): Build aertun, create a store and its first administrator, sign in with a passkey, then connect a source, install detections and decide who else may do what.
 - [Install and run aertun](https://aertun.github.io/install/): Build aertun from source with Go alone, install it with make, run it under systemd or in a distroless container, and put it behind a reverse proxy.
 - [Glossary](https://aertun.github.io/concepts/): Short definitions of the words the aertun manual and console use: sources, events, detections, findings, cases, regimes, playbooks, actions, the audit log.
+
+## Proving AI work
+
+- [Proofs: AI work checked and signed](https://aertun.github.io/proofs/): Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.
+- [The wind tunnel: attacks on AI agents, replayed](https://aertun.github.io/windtunnel/): Replay scripted malicious AI-agent sessions through a recorded stream, measure whether the detections caught them, and sign a scorecard anybody can verify.
 
 ## Operations
 
@@ -35,7 +40,7 @@ aertun is one Go binary with no third-party dependencies, licensed under Apache-
 ## Administration
 
 - [People and access](https://aertun.github.io/people/): Grant roles and jobs on a path, deny what a broader grant would allow, explain any decision, provision people with SCIM, and issue tokens that end.
-- [Roles and separation of duties](https://aertun.github.io/roles/): Four roles in a ladder (viewer, analyst, responder, admin), three jobs beside it (engineer, vuln-manager, auditor), and duties kept apart so nobody acts alone.
+- [Roles and separation of duties](https://aertun.github.io/roles/): One Owner, then collaborators with a role (viewer, analyst, responder, admin) or a job, and duties kept apart so nobody, and no agent, acts alone.
 - [Single sign-on](https://aertun.github.io/sso/): Sign in through OpenID Connect or SAML. Single sign-on counts as two factors only when the identity provider says it used them, or a passkey is asked for.
 - [Passkeys, enrolment and recovery](https://aertun.github.io/passkeys/): Sign in with a passkey that checks it is you, add one through a one-time enrolment link, lock out failed sign-ins by place, and recover without a password.
 - [Settings](https://aertun.github.io/settings/): Every aertun setting with what it does and its default. A weaker value needs a recorded reason and a second administrator, and bounds no reason steps past.
@@ -45,5 +50,5 @@ aertun is one Go binary with no third-party dependencies, licensed under Apache-
 ## Reference
 
 - [The command line](https://aertun.github.io/cli/): Every aertun command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root and --token for identity.
-- [AI agents over MCP](https://aertun.github.io/mcp/): Connect an AI agent to aertun over the Model Context Protocol: eight operations behind four tools, to read findings and propose decisions, never to act.
+- [AI agents over MCP](https://aertun.github.io/mcp/): Connect an AI agent to aertun over the Model Context Protocol: eight operations behind three tools, to read findings and propose decisions, never to act.
 - [Licence: Apache-2.0](https://aertun.github.io/licence/): aertun is open source under the Apache License 2.0. Use it, change it, embed it in your own product and sell it, with no licence key and nothing held back.

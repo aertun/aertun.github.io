@@ -1,0 +1,37 @@
+<!--
+title: Proofs: AI work checked and signed
+short: Proofs
+seo: Aertun proofs: detection rules checked and signed
+description: Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.
+lead: A claim about security work, checked by a program against evidence its author did not write, and signed whatever the verdict.
+icon: fact_check
+updated: 2026-11-06
+-->
+<p>A model can draft a detection rule faster than anybody can check it. A proof is the check, made by a program rather than by the author, and written down so whoever receives the rule — a reviewer, CI, a customer — can rely on it without trusting whoever handed it over.</p>
+<h2 id="verdicts">Three verdicts</h2>
+<table>
+<thead><tr><th>Verdict</th><th>Means</th></tr></thead>
+<tbody>
+<tr><td><code>proven</code></td><td>every check passed on evidence that could have failed it</td></tr>
+<tr><td><code>refuted</code></td><td>a check failed, and the proof names what</td></tr>
+<tr><td><code>inconclusive</code></td><td>nothing failed, but nothing could have: a rule checked only against its own fixtures</td></tr>
+</tbody>
+</table>
+<p>A refutation is signed like a proof: what did not work is what the next attempt most needs to know.</p>
+<h2 id="detection">Prove a detection rule</h2>
+<pre><code>aertun content keygen --out root.key     # once: a signing key in the store; move root.key off the machine
+aertun proof detection --rule rule.json --corpus corpus.jsonl \
+    --key .aertun/content/release.key --public-key proof-key.json \
+    --out rule.proof.json --by you@example.com</code></pre>
+<p>It checks, in order:</p>
+<ol>
+<li><strong>valid</strong> — the rule is a rule; an invalid one is refuted and nothing else runs.</li>
+<li><strong>fixtures</strong> — its own must-match and must-not-match examples hold. Necessary, never enough.</li>
+<li><strong>corpus</strong> — over a labelled corpus (one JSON object a line, as <code>aertun detect replay</code> reads), it fires on every entry labelled as its own and on nothing else it reads. A false positive somebody recorded and nobody fixed still refutes it.</li>
+</ol>
+<p>Recall and specificity are reported as 95% Wilson lower bounds, so a proof over one example reads as the weak thing it is. Without a corpus the best verdict is inconclusive. <code>--model</code> and <code>--prompt-sha256</code> record which model wrote the rule and a digest of its prompt — never the prompt.</p>
+<h2 id="verify">Verify one</h2>
+<pre><code>aertun proof verify --key proof-key.json --subject rule.json rule.proof.json</code></pre>
+<p>Both signatures must hold against a key you were handed, never one the document supplies; <code>--subject</code> checks the proof is about exactly that file. It exits non-zero on anything but <code>proven</code>, so it is a CI gate.</p>
+<h2 id="format">What a proof is</h2>
+<p>An <a href="https://in-toto.io/Statement/v1">in-toto Statement</a> in a <a href="https://github.com/secure-systems-lab/dsse">DSSE envelope</a>: the subject is the rule file by digest; the predicate (<code>https://aertun.github.io/proof/detection/v1</code>) names the claim in words, the verifier and its version, every material it read by digest, each check, and the verdict. It is signed twice, Ed25519 and ML-DSA-65, the second in the context <code>aertun/proof/v1</code>. The Ed25519 half is plain DSSE, so in-toto and Sigstore tooling check it with no help from Aertun. The signing key file must be readable by its owner alone.</p>

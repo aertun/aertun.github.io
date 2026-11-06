@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://aertun.github.io/cli/">
 <meta property="og:image" content="https://aertun.github.io/assets/social.png">
 <meta property="og:locale" content="en_GB">
-<meta property="article:modified_time" content="2026-10-23">
+<meta property="article:modified_time" content="2026-11-06">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="aertun command line: every command and global flag">
 <meta name="twitter:description" content="Every aertun command, grouped as the console&#39;s screens are, and the flags every command takes: --json for machines, --root and --token for identity.">
@@ -28,7 +28,7 @@
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script>try{var t=localStorage.getItem("vg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")</script>
 <script src="/assets/docs.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-10-23","description":"Every aertun command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root and --token for identity.","headline":"The command line","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/cli/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/cli/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#reference","name":"Reference","position":2},{"@type":"ListItem","name":"Command line","position":3}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-11-06","description":"Every aertun command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root and --token for identity.","headline":"The command line","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/cli/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/cli/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#reference","name":"Reference","position":2},{"@type":"ListItem","name":"Command line","position":3}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the content</a>
@@ -59,6 +59,13 @@
       <li><a href="/start/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M284-506q14-28 29-54t33-52l-56-11-84 84 78 33Zm482-275q-70 2-149.5 41T472-636q-42 42-75 90t-49 90l114 113q42-16 90-49t90-75q65-65 104-144t41-149q0-4-1.5-8t-4.5-7q-3-3-7-4.5t-8-1.5ZM546-541q-23-23-23-56.5t23-56.5q23-23 57-23t57 23q23 23 23 56.5T660-541q-23 23-57 23t-57-23Zm-34 262 33 79 84-84-11-56q-26 18-52 32.5T512-279Zm351-534q8 110-36 214.5T688-399l20 99q4 20-2 39t-20 33L560-102q-15 15-36 11.5T495-114l-61-143-171-171-143-61q-20-8-24-29t11-36l126-126q14-14 33.5-20t39.5-2l99 20q95-95 199.5-139T819-857q8 1 16 4.5t14 9.5q6 6 9.5 14t4.5 16ZM157-321q35-35 85.5-35.5T328-322q35 35 34.5 85.5T327-151q-48 48-113.5 57T82-76q9-66 18-131.5T157-321Zm57 56q-17 17-23.5 41T180-175q25-4 49-10t41-23q12-12 13-29t-11-29q-12-12-29-11.5T214-265Z"/></svg><span>Get started</span></a></li>
       <li><a href="/install/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-337q-8 0-15-2.5t-13-8.5L308-492q-12-12-11.5-28t11.5-28q12-12 28.5-12.5T365-549l75 75v-286q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v286l75-75q12-12 28.5-11.5T652-548q11 12 11.5 28T652-492L508-348q-6 6-13 8.5t-15 2.5ZM240-160q-33 0-56.5-23.5T160-240v-80q0-17 11.5-28.5T200-360q17 0 28.5 11.5T240-320v80h480v-80q0-17 11.5-28.5T760-360q17 0 28.5 11.5T800-320v80q0 33-23.5 56.5T720-160H240Z"/></svg><span>Install</span></a></li>
       <li><a href="/concepts/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M360-240h240q17 0 28.5-11.5T640-280q0-17-11.5-28.5T600-320H360q-17 0-28.5 11.5T320-280q0 17 11.5 28.5T360-240Zm0-160h240q17 0 28.5-11.5T640-440q0-17-11.5-28.5T600-480H360q-17 0-28.5 11.5T320-440q0 17 11.5 28.5T360-400ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h287q16 0 30.5 6t25.5 17l194 194q11 11 17 25.5t6 30.5v447q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-440H560q-17 0-28.5-11.5T520-640ZM240-800v200-200 640-640Z"/></svg><span>Glossary</span></a></li>
+    </ul>
+  </details>
+  <details class="navgroup" data-group="proving-ai-work">
+    <summary><h2>Proving AI work</h2><span class="chev"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-362q-8 0-15-2.5t-13-8.5L268-557q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-373q-6 6-13 8.5t-15 2.5Z"/></svg></span></summary>
+    <ul class="nav">
+      <li><a href="/proofs/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M160-120q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v560q0 33-23.5 56.5T800-120H160Zm0-80h640v-560H160v560Zm200-80q17 0 28.5-11.5T400-320q0-17-11.5-28.5T360-360H240q-17 0-28.5 11.5T200-320q0 17 11.5 28.5T240-280h120Zm222-193-29-29q-12-12-28-11.5T497-501q-11 12-11.5 28t11.5 28l57 57q12 12 28 12t28-12l142-142q12-12 12-28t-12-28q-12-12-28.5-12T695-586L582-473Zm-222 33q17 0 28.5-11.5T400-480q0-17-11.5-28.5T360-520H240q-17 0-28.5 11.5T200-480q0 17 11.5 28.5T240-440h120Zm0-160q17 0 28.5-11.5T400-640q0-17-11.5-28.5T360-680H240q-17 0-28.5 11.5T200-640q0 17 11.5 28.5T240-600h120ZM160-200v-560 560Z"/></svg><span>Proofs</span></a></li>
+      <li><a href="/windtunnel/"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-80q-83 0-141.5-58.5T280-280v-360q-33 0-56.5-23.5T200-720v-80q0-33 23.5-56.5T280-880h400q33 0 56.5 23.5T760-800v80q0 33-23.5 56.5T680-640v360q0 83-58.5 141.5T480-80ZM280-720h400v-80H280v80Zm200 560q50 0 85-35t35-85h-80q-17 0-28.5-11.5T480-320q0-17 11.5-28.5T520-360h80v-80h-80q-17 0-28.5-11.5T480-480q0-17 11.5-28.5T520-520h80v-120H360v360q0 50 35 85t85 35ZM280-720v-80 80Z"/></svg><span>Wind tunnel</span></a></li>
     </ul>
   </details>
   <details class="navgroup" data-group="operations">
@@ -121,24 +128,25 @@
   </header>
   <div class="prose">
 <pre><code>aertun help</code></pre>
-<p>Every command takes <code>--json</code>, <code>--root DIR</code> and <code>--token T</code>. With <code>--json</code>, standard output is one JSON document. A token can also come from <code>VAIGIL_TOKEN</code>.</p>
+<p>Every command takes <code>--json</code>, <code>--root DIR</code> and <code>--token T</code>. With <code>--json</code>, standard output is one JSON document. A token can also come from <code>AERTUN_TOKEN</code>.</p>
 <table>
 <thead><tr><th>Group</th><th>Commands</th></tr></thead>
 <tbody>
 <tr><td>Running it</td><td><code>init</code>, <code>serve</code>, <code>mcp</code></td></tr>
 <tr><td>Collecting what happens</td><td><code>connect</code>, <code>collect</code>, <code>source</code>, <code>telemetry</code>, <code>inbound</code>, <code>spool</code>, <code>identity</code></td></tr>
-<tr><td>Detecting and deciding</td><td><code>detect</code>, <code>sigma</code>, <code>correlate</code>, <code>triage</code>, <code>hunt</code>, <code>finding</code>, <code>intel</code>, <code>analyst</code>, <code>automate</code>, <code>geo</code></td></tr>
+<tr><td>Proving AI work</td><td><code>proof</code>, <code>windtunnel</code>, <code>bench</code></td></tr>
+<tr><td>Detecting and deciding</td><td><code>detect</code>, <code>sigma</code>, <code>correlate</code>, <code>triage</code>, <code>hunt</code>, <code>finding</code>, <code>intel</code>, <code>analyst</code>, <code>automate</code>, <code>geo</code>, <code>content</code></td></tr>
 <tr><td>Cases and response</td><td><code>incident</code>, <code>action</code>, <code>notify</code>, <code>work</code></td></tr>
 <tr><td>Vulnerabilities and code</td><td><code>vuln</code>, <code>feed</code>, <code>sca</code>, <code>sarif</code>, <code>appsec</code></td></tr>
 <tr><td>The estate and its people</td><td><code>estate</code>, <code>workforce</code>, <code>remind</code>, <code>vendor</code>, <code>access</code></td></tr>
-<tr><td>People, sign-in and changes</td><td><code>auth</code>, <code>oidc</code>, <code>saml</code>, <code>scim</code>, <code>token</code>, <code>pending</code>, <code>approvals</code></td></tr>
-<tr><td>Its own record and settings</td><td><code>auditlog</code>, <code>logd</code>, <code>siem</code>, <code>vault</code>, <code>config</code>, <code>network</code>, <code>version</code></td></tr>
+<tr><td>People, agents, sign-in and changes</td><td><code>auth</code>, <code>agent</code>, <code>oidc</code>, <code>saml</code>, <code>scim</code>, <code>ssf</code>, <code>token</code>, <code>pending</code>, <code>approvals</code></td></tr>
+<tr><td>Its own record and settings</td><td><code>auditlog</code>, <code>logd</code>, <code>siem</code>, <code>compliance</code>, <code>privacy</code>, <code>vault</code>, <code>config</code>, <code>network</code>, <code>version</code></td></tr>
 </tbody>
 </table>
 <p>Every command has a screen in the console or a written reason why not, and an MCP operation or a written reason why not; a test fails when one has neither.</p>
   </div>
   <footer class="guide-foot">
-    <p class="updated">Updated 2026-10-23 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/cli.html">Edit this page on GitHub</a></p>
+    <p class="updated">Updated 2026-11-06 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/cli.html">Edit this page on GitHub</a></p>
     <nav class="pager" aria-label="Previous and next guides">
       <a class="pager-prev" href="/security/" rel="prev"><span class="pager-dir"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m313-440 196 196q12 12 11.5 28T508-188q-12 11-28 11.5T452-188L188-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l264-264q11-11 27.5-11t28.5 11q12 12 12 28.5T508-715L313-520h447q17 0 28.5 11.5T800-480q0 17-11.5 28.5T760-440H313Z"/></svg>Previous</span><span class="pager-title">How aertun defends itself</span></a>
       <a class="pager-next" href="/mcp/" rel="next"><span class="pager-dir">Next<svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z"/></svg></span><span class="pager-title">AI agents over MCP</span></a>
@@ -149,7 +157,7 @@
 </div>
 <footer class="foot">
   <div class="foot-inner">
-    <p><strong>aertun</strong> is the AI-agent wind tunnel: breach-and-attack simulation for deployed agent stacks, on a complete detection engine. One Go binary, no third-party dependencies.</p>
+    <p><strong>Aertun</strong> is the proving ground for AI security work: it checks what AI defenders produce against evidence they did not write, and signs the result. One Go binary, no third-party dependencies.</p>
     <p>Open source under the <a href="/licence/">Apache License 2.0</a>. This manual describes <code>main</code>. <a href="https://github.com/aertun/aertun">Source</a> · <a href="https://github.com/aertun/aertun/releases">Releases</a> · <a href="https://github.com/aertun/aertun/blob/main/SECURITY.md">Report a vulnerability</a> · <a href="/llms.txt">llms.txt</a></p>
   </div>
 </footer>

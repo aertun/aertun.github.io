@@ -5,21 +5,22 @@ seo: aertun command line: every command and global flag
 description: Every aertun command, grouped as the console's screens are, and the flags every command takes: --json for machines, --root and --token for identity.
 lead: Every command, and the flags every command takes.
 icon: terminal
-updated: 2026-10-23
+updated: 2026-11-06
 -->
 <pre><code>aertun help</code></pre>
-<p>Every command takes <code>--json</code>, <code>--root DIR</code> and <code>--token T</code>. With <code>--json</code>, standard output is one JSON document. A token can also come from <code>VAIGIL_TOKEN</code>.</p>
+<p>Every command takes <code>--json</code>, <code>--root DIR</code> and <code>--token T</code>. With <code>--json</code>, standard output is one JSON document. A token can also come from <code>AERTUN_TOKEN</code>.</p>
 <table>
 <thead><tr><th>Group</th><th>Commands</th></tr></thead>
 <tbody>
 <tr><td>Running it</td><td><code>init</code>, <code>serve</code>, <code>mcp</code></td></tr>
 <tr><td>Collecting what happens</td><td><code>connect</code>, <code>collect</code>, <code>source</code>, <code>telemetry</code>, <code>inbound</code>, <code>spool</code>, <code>identity</code></td></tr>
-<tr><td>Detecting and deciding</td><td><code>detect</code>, <code>sigma</code>, <code>correlate</code>, <code>triage</code>, <code>hunt</code>, <code>finding</code>, <code>intel</code>, <code>analyst</code>, <code>automate</code>, <code>geo</code></td></tr>
+<tr><td>Proving AI work</td><td><code>proof</code>, <code>windtunnel</code>, <code>bench</code></td></tr>
+<tr><td>Detecting and deciding</td><td><code>detect</code>, <code>sigma</code>, <code>correlate</code>, <code>triage</code>, <code>hunt</code>, <code>finding</code>, <code>intel</code>, <code>analyst</code>, <code>automate</code>, <code>geo</code>, <code>content</code></td></tr>
 <tr><td>Cases and response</td><td><code>incident</code>, <code>action</code>, <code>notify</code>, <code>work</code></td></tr>
 <tr><td>Vulnerabilities and code</td><td><code>vuln</code>, <code>feed</code>, <code>sca</code>, <code>sarif</code>, <code>appsec</code></td></tr>
 <tr><td>The estate and its people</td><td><code>estate</code>, <code>workforce</code>, <code>remind</code>, <code>vendor</code>, <code>access</code></td></tr>
-<tr><td>People, sign-in and changes</td><td><code>auth</code>, <code>oidc</code>, <code>saml</code>, <code>scim</code>, <code>token</code>, <code>pending</code>, <code>approvals</code></td></tr>
-<tr><td>Its own record and settings</td><td><code>auditlog</code>, <code>logd</code>, <code>siem</code>, <code>vault</code>, <code>config</code>, <code>network</code>, <code>version</code></td></tr>
+<tr><td>People, agents, sign-in and changes</td><td><code>auth</code>, <code>agent</code>, <code>oidc</code>, <code>saml</code>, <code>scim</code>, <code>ssf</code>, <code>token</code>, <code>pending</code>, <code>approvals</code></td></tr>
+<tr><td>Its own record and settings</td><td><code>auditlog</code>, <code>logd</code>, <code>siem</code>, <code>compliance</code>, <code>privacy</code>, <code>vault</code>, <code>config</code>, <code>network</code>, <code>version</code></td></tr>
 </tbody>
 </table>
 <p>Every command has a screen in the console or a written reason why not, and an MCP operation or a written reason why not; a test fails when one has neither.</p>

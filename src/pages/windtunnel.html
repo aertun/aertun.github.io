@@ -1,0 +1,21 @@
+<!--
+title: The wind tunnel: attacks on AI agents, replayed
+short: Wind tunnel
+seo: Aertun wind tunnel: agent attacks replayed through detections
+description: Replay scripted malicious AI-agent sessions through a recorded stream, measure whether the detections caught them, and sign a scorecard anybody can verify.
+lead: Scripted attacks on AI agents, replayed through your detections, scored and signed.
+icon: labs
+updated: 2026-11-06
+-->
+<p>The wind tunnel splices scripted malicious agent sessions into a recorded telemetry stream in a scratch store and measures whether the detections caught them. Nothing live is touched: the exfiltration step is a log line about exfiltration, written to a scratch spool.</p>
+<pre><code>aertun windtunnel list-scenarios
+aertun windtunnel preflight
+aertun windtunnel run --key .aertun/content/release.key --public-key scorecard-key.json --out scorecard.json
+aertun windtunnel verify --key scorecard-key.json scorecard.json
+aertun windtunnel diff old.json new.json       # the CI gate: fails on a regression</code></pre>
+<h2 id="scenarios">Scenarios</h2>
+<p>A scenario is data, never code: a malicious agent session as the security operations centre would see it, with a benign twin doing the legitimate version of the same work, on which nothing may fire. Six ship today: an injection through an issue, an MCP server's rug-pull, a read-then-exfiltrate chain, a slopsquatted install, a runaway cost loop, and a blind window in the recorder.</p>
+<h2 id="scorecard">The scorecard</h2>
+<p>It names what ran before how it went — scenario digests, the stream's digest, the rule pack's version — then reports the miss rate first, with 95% Wilson bounds, and per family. Sealed with its own digest and signed with Ed25519 and ML-DSA-65, so a third party verifies it offline with the public key alone.</p>
+<h2 id="modes">Whose rules</h2>
+<p>By default the scorecard is scored against Aertun's own reference rules, which were written beside the scenarios: it is a regression test of that pack, not an independent measurement. <code>run --sigma DIR</code> scores your own Sigma rules instead, joined at ATT&amp;CK technique level, with the join's limits stated on the document.</p>

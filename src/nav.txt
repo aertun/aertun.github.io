@@ -7,6 +7,10 @@ start
 install
 concepts
 
+## Proving AI work
+proofs
+windtunnel
+
 ## Operations
 approvals
 findings

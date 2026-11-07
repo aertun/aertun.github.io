@@ -11,10 +11,10 @@ updated: 2026-11-06
 <p>A store starts with one person, its Owner: <code>aertun init --owner NAME</code>. The Owner holds the administrator role over the whole store, and nothing can take it away — not another administrator, not single sign-on provisioning, not a deny, not an end date. Ownership moves only when the Owner asks for a transfer and confirms it a day later; any administrator can decline it before then, and Aertun's own detections raise the request.</p>
 <pre><code>aertun auth owner
 aertun auth owner transfer lee@example.com --note "handing over"
-aertun pending approve ID     # the Owner, a day later</code></pre>
+# a day later, the Owner confirms it on the People screen with their passkey</code></pre>
 <p>The new Owner must already administer the whole store with no end date.</p>
 <h2 id="collaborators">Collaborators</h2>
-<p>Everybody else is a collaborator: an administrator grants them a role, a job or one permission, and sends the one-time link <code>aertun auth enrol NAME</code> prints.</p>
+<p>Everybody else is a collaborator. <code>aertun auth invite NAME ROLE</code> grants the role and prints the one-time link that adds their passkey, in one step; the People screen does the same with "And give them a passkey enrolment link". Making somebody an administrator still waits for a second administrator, and the link is printed anyway, with the plain statement that signing in reaches nothing until the grant is approved. <code>aertun auth grant</code> and <code>aertun auth enrol</code> do the two halves separately.</p>
 <table>
 <thead><tr><th>Role</th><th>May</th></tr></thead>
 <tbody>
@@ -30,6 +30,6 @@ aertun pending approve ID     # the Owner, a day later</code></pre>
 <li>An action on another platform is approved by somebody other than whoever asked.</li>
 <li>Whoever wrote an automation rule does not approve the runs it holds.</li>
 <li>Making somebody an administrator, issuing an administrator's token, weakening a setting, lowering how many approvals a change needs and moving the audit log each take a second administrator.</li>
-<li>An only administrator is slowed, not blocked: their own request waits an hour (a day to move the audit log), is raised by Aertun's detections over its own audit log, can be declined from any administrator's session, and only then may they approve it themselves. The record says it was approved alone.</li>
+<li>An only administrator is slowed, not blocked: their own request needs a reason, waits an hour (a day to move the audit log or pass on ownership), is raised by Aertun's detections over its own audit log, can be declined from any administrator's session, and only then may they approve it themselves, with a passkey sign-in from the last five minutes. The record says it was approved alone.</li>
 <li>Agents propose; people decide. An AI agent's authority is the intersection of its registry entry, the live grants of the person it acts for, and its token's own limits. It may ask for a privileged change, but never approve one, approve an action on another platform, or move ownership.</li>
 </ul>

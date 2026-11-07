@@ -19,7 +19,7 @@ aertun is one Go binary with no third-party dependencies, licensed under Apache-
 
 - [Approvals](https://aertun.github.io/approvals/): One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.
 - [Findings and the AI analyst](https://aertun.github.io/findings/): One queue of security findings ranked by risk, decisions kept and replayable, and an AI analyst that suggests a verdict from counts without ever recording one.
-- [Cases, incidents and notification clocks](https://aertun.github.io/cases/): Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.
+- [Cases, incidents and notification clocks](https://aertun.github.io/cases/): Incidents with the clocks GDPR, NIS2, DORA, the Cyber Resilience Act, SEC, CIRCIA and HIPAA start, playbooks, and actions a second person approves.
 
 ## Investigation
 

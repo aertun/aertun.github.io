@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>aertun cases: legal clocks and two-person actions | aertun</title>
-<meta name="description" content="Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.">
+<meta name="description" content="Incidents with the clocks GDPR, NIS2, DORA, the Cyber Resilience Act, SEC, CIRCIA and HIPAA start, playbooks, and actions a second person approves.">
 <link rel="canonical" href="https://aertun.github.io/cases/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f8fafd" media="(prefers-color-scheme: light)">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="aertun manual">
 <meta property="og:title" content="aertun cases: legal clocks and two-person actions">
-<meta property="og:description" content="Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.">
+<meta property="og:description" content="Incidents with the clocks GDPR, NIS2, DORA, the Cyber Resilience Act, SEC, CIRCIA and HIPAA start, playbooks, and actions a second person approves.">
 <meta property="og:url" content="https://aertun.github.io/cases/">
 <meta property="og:image" content="https://aertun.github.io/assets/social.png">
 <meta property="og:locale" content="en_GB">
 <meta property="article:modified_time" content="2026-10-23">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="aertun cases: legal clocks and two-person actions">
-<meta name="twitter:description" content="Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.">
+<meta name="twitter:description" content="Incidents with the clocks GDPR, NIS2, DORA, the Cyber Resilience Act, SEC, CIRCIA and HIPAA start, playbooks, and actions a second person approves.">
 <meta name="twitter:image" content="https://aertun.github.io/assets/social.png">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/mark.png">
@@ -28,7 +28,7 @@
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script>try{var t=localStorage.getItem("vg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")</script>
 <script src="/assets/docs.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-10-23","description":"Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.","headline":"Cases, incidents and notification clocks","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/cases/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/cases/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#operations","name":"Operations","position":2},{"@type":"ListItem","name":"Cases and incidents","position":3}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-10-23","description":"Incidents with the clocks GDPR, NIS2, DORA, the Cyber Resilience Act, SEC, CIRCIA and HIPAA start, playbooks, and actions a second person approves.","headline":"Cases, incidents and notification clocks","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/cases/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/cases/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#operations","name":"Operations","position":2},{"@type":"ListItem","name":"Cases and incidents","position":3}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the content</a>
@@ -142,6 +142,7 @@ aertun incident step ID account-compromise STEP done --because "..."</code></pre
 aertun incident act ID okta-suspend-user okta:USER --because "..."
 aertun incident act-approve ID 1</code></pre><p>The exact request is shown before anybody approves it, and it is sent only when a second person does.</p></li>
 </ol>
+<p>Some reports are timed from an earlier one rather than from a decision — NIS2's final report a month after its notification, DORA's intermediate report 72 hours after the initial notification and its final report a month after that — so their clocks start when the earlier report is recorded as done. Months are counted as EU law counts them: a month from 31 January ends on the last day of February. DORA's initial notification is due four hours after classification as major and no later than 24 hours after awareness. The Cyber Resilience Act's reporting duties (regime <code>cra</code>) apply to manufacturers from 11 September 2026; its final report on an exploited vulnerability runs from <code>aertun incident decide ID mitigated</code>. CIRCIA's 72 hours are shown with a note that reporting is required only once CISA's final rule takes effect.</p>
 <p>The deadlines are the published ones, counted from the decision, not legal advice. Notices to the people affected are drafted, planned and sent with <code>aertun notify</code>.</p>
   </div>
   <footer class="guide-foot">

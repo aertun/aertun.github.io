@@ -6,7 +6,7 @@ description: One screen for everything waiting for you: actions on other platfor
 lead: Everything waiting for you to decide, in one place.
 icon: approvals
 screens: Approvals
-updated: 2026-10-23
+updated: 2026-11-07
 -->
 <p>Three things wait for a person, and each is decided by somebody other than whoever asked for it:</p>
 <ul>
@@ -18,4 +18,12 @@ updated: 2026-10-23
 aertun incident act-approve ID N
 aertun automate approve RUN
 aertun pending approve ID</code></pre>
-<p>What was asked for, by whom and why is shown before anybody decides, and the decision is in the audit log. A privileged change asked for by the only administrator is applied as they make it, and the record says it was approved alone.</p>
+<p>What was asked for, by whom and why is shown before anybody decides, and the decision is in the audit log.</p>
+<h2 id="alone">When you are the only administrator</h2>
+<p>A privileged change asked for by the only administrator is slowed, not blocked:</p>
+<ul>
+<li>It needs a reason, given with the command's own option (<code>--note</code> on a grant, <code>--why</code> on an administrator's token or an audit log move, <code>--accept-risk</code> on a weaker setting) or written on the screen. The reason is kept in the request and in its audit record, because nobody else's approval stands beside it.</li>
+<li>It waits an hour — a day to move the audit log or pass on ownership — and Aertun's detections over its own audit log raise it. Any administrator's session can decline it while it waits.</li>
+<li>Approving your own request needs a passkey sign-in from the last five minutes. The People screen asks for your passkey when your sign-in is older; a command-line token is not a passkey sign-in, so <code>aertun pending approve</code> points you to the screen for your own requests.</li>
+</ul>
+<p>The record says the change was approved alone.</p>

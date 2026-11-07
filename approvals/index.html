@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://aertun.github.io/approvals/">
 <meta property="og:image" content="https://aertun.github.io/assets/social.png">
 <meta property="og:locale" content="en_GB">
-<meta property="article:modified_time" content="2026-10-23">
+<meta property="article:modified_time" content="2026-11-07">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="aertun approvals: what is waiting for a second person">
 <meta name="twitter:description" content="One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.">
@@ -28,7 +28,7 @@
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script>try{var t=localStorage.getItem("vg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")</script>
 <script src="/assets/docs.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-10-23","description":"One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.","headline":"Approvals","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/approvals/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/approvals/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#operations","name":"Operations","position":2},{"@type":"ListItem","name":"Approvals","position":3}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-11-07","description":"One screen for everything waiting for you: actions on other platforms, runs an automation held, and privileged changes that need a second administrator.","headline":"Approvals","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/approvals/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/approvals/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#operations","name":"Operations","position":2},{"@type":"ListItem","name":"Approvals","position":3}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the content</a>
@@ -138,10 +138,18 @@
 aertun incident act-approve ID N
 aertun automate approve RUN
 aertun pending approve ID</code></pre>
-<p>What was asked for, by whom and why is shown before anybody decides, and the decision is in the audit log. A privileged change asked for by the only administrator is applied as they make it, and the record says it was approved alone.</p>
+<p>What was asked for, by whom and why is shown before anybody decides, and the decision is in the audit log.</p>
+<h2 id="alone">When you are the only administrator<a class="anchor" href="#alone" aria-hidden="true" tabindex="-1">#</a></h2>
+<p>A privileged change asked for by the only administrator is slowed, not blocked:</p>
+<ul>
+<li>It needs a reason, given with the command's own option (<code>--note</code> on a grant, <code>--why</code> on an administrator's token or an audit log move, <code>--accept-risk</code> on a weaker setting) or written on the screen. The reason is kept in the request and in its audit record, because nobody else's approval stands beside it.</li>
+<li>It waits an hour — a day to move the audit log or pass on ownership — and Aertun's detections over its own audit log raise it. Any administrator's session can decline it while it waits.</li>
+<li>Approving your own request needs a passkey sign-in from the last five minutes. The People screen asks for your passkey when your sign-in is older; a command-line token is not a passkey sign-in, so <code>aertun pending approve</code> points you to the screen for your own requests.</li>
+</ul>
+<p>The record says the change was approved alone.</p>
   </div>
   <footer class="guide-foot">
-    <p class="updated">Updated 2026-10-23 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/approvals.html">Edit this page on GitHub</a></p>
+    <p class="updated">Updated 2026-11-07 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/approvals.html">Edit this page on GitHub</a></p>
     <nav class="pager" aria-label="Previous and next guides">
       <a class="pager-prev" href="/windtunnel/" rel="prev"><span class="pager-dir"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m313-440 196 196q12 12 11.5 28T508-188q-12 11-28 11.5T452-188L188-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l264-264q11-11 27.5-11t28.5 11q12 12 12 28.5T508-715L313-520h447q17 0 28.5 11.5T800-480q0 17-11.5 28.5T760-440H313Z"/></svg>Previous</span><span class="pager-title">The wind tunnel: attacks on AI agents, replayed</span></a>
       <a class="pager-next" href="/findings/" rel="next"><span class="pager-dir">Next<svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z"/></svg></span><span class="pager-title">Findings and the AI analyst</span></a>
@@ -149,6 +157,12 @@ aertun pending approve ID</code></pre>
   </footer>
 </article>
 </main>
+<aside class="toc" aria-label="On this page">
+  <h2>On this page</h2>
+  <ul>
+    <li><a href="#alone">When you are the only administrator</a></li>
+  </ul>
+</aside>
 </div>
 <footer class="foot">
   <div class="foot-inner">

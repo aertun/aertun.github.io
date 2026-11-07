@@ -2,7 +2,7 @@
 title: Cases, incidents and notification clocks
 short: Cases and incidents
 seo: aertun cases: legal clocks and two-person actions
-description: Declare incidents with the clocks GDPR, NIS2, DORA, SEC, CIRCIA and HIPAA start, run playbooks, and act on other platforms once a second person approves.
+description: Incidents with the clocks GDPR, NIS2, DORA, the Cyber Resilience Act, SEC, CIRCIA and HIPAA start, playbooks, and actions a second person approves.
 lead: Incidents with the clocks each law starts, and actions a second person approves.
 icon: cases
 screens: Cases
@@ -22,4 +22,5 @@ aertun incident step ID account-compromise STEP done --because "..."</code></pre
 aertun incident act ID okta-suspend-user okta:USER --because "..."
 aertun incident act-approve ID 1</code></pre><p>The exact request is shown before anybody approves it, and it is sent only when a second person does.</p></li>
 </ol>
+<p>Some reports are timed from an earlier one rather than from a decision — NIS2's final report a month after its notification, DORA's intermediate report 72 hours after the initial notification and its final report a month after that — so their clocks start when the earlier report is recorded as done. Months are counted as EU law counts them: a month from 31 January ends on the last day of February. DORA's initial notification is due four hours after classification as major and no later than 24 hours after awareness. The Cyber Resilience Act's reporting duties (regime <code>cra</code>) apply to manufacturers from 11 September 2026; its final report on an exploited vulnerability runs from <code>aertun incident decide ID mitigated</code>. CIRCIA's 72 hours are shown with a note that reporting is required only once CISA's final rule takes effect.</p>
 <p>The deadlines are the published ones, counted from the decision, not legal advice. Notices to the people affected are drafted, planned and sent with <code>aertun notify</code>.</p>

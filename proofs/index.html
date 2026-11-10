@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aertun proofs: detection rules checked and signed | aertun</title>
-<meta name="description" content="Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.">
+<meta name="description" content="Check detection rules, the AI analyst&#39;s threshold and other vendors&#39; AI verdicts against evidence they did not write, and sign the verdict.">
 <link rel="canonical" href="https://aertun.github.io/proofs/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f8fafd" media="(prefers-color-scheme: light)">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="aertun manual">
 <meta property="og:title" content="Aertun proofs: detection rules checked and signed">
-<meta property="og:description" content="Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.">
+<meta property="og:description" content="Check detection rules, the AI analyst&#39;s threshold and other vendors&#39; AI verdicts against evidence they did not write, and sign the verdict.">
 <meta property="og:url" content="https://aertun.github.io/proofs/">
 <meta property="og:image" content="https://aertun.github.io/assets/social.png">
 <meta property="og:locale" content="en_GB">
-<meta property="article:modified_time" content="2026-11-06">
+<meta property="article:modified_time" content="2026-11-10">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aertun proofs: detection rules checked and signed">
-<meta name="twitter:description" content="Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.">
+<meta name="twitter:description" content="Check detection rules, the AI analyst&#39;s threshold and other vendors&#39; AI verdicts against evidence they did not write, and sign the verdict.">
 <meta name="twitter:image" content="https://aertun.github.io/assets/social.png">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/mark.png">
@@ -28,7 +28,7 @@
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <script>try{var t=localStorage.getItem("vg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add("js")</script>
 <script src="/assets/docs.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-11-06","description":"Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.","headline":"Proofs: AI work checked and signed","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/proofs/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/proofs/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#proving-ai-work","name":"Proving AI work","position":2},{"@type":"ListItem","name":"Proofs","position":3}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://aertun.github.io/#project","@type":"Organization","logo":"https://aertun.github.io/assets/mark.png","name":"The aertun project","sameAs":["https://github.com/aertun/aertun"],"url":"https://github.com/aertun"},{"@type":"TechArticle","about":{"@type":"SoftwareApplication","name":"aertun"},"author":{"@id":"https://aertun.github.io/#project"},"dateModified":"2026-11-10","description":"Check detection rules, the AI analyst's threshold and other vendors' AI verdicts against evidence they did not write, and sign the verdict.","headline":"Proofs: AI work checked and signed","image":"https://aertun.github.io/assets/social.png","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"aertun manual","url":"https://aertun.github.io/"},"mainEntityOfPage":"https://aertun.github.io/proofs/","publisher":{"@id":"https://aertun.github.io/#project"},"url":"https://aertun.github.io/proofs/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://aertun.github.io/","name":"aertun manual","position":1},{"@type":"ListItem","item":"https://aertun.github.io/#proving-ai-work","name":"Proving AI work","position":2},{"@type":"ListItem","name":"Proofs","position":3}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to the content</a>
@@ -153,11 +153,27 @@ aertun proof detection --rule rule.json --corpus corpus.jsonl \
 <h2 id="verify">Verify one<a class="anchor" href="#verify" aria-hidden="true" tabindex="-1">#</a></h2>
 <pre><code>aertun proof verify --key proof-key.json --subject rule.json rule.proof.json</code></pre>
 <p>Both signatures must hold against a key you were handed, never one the document supplies; <code>--subject</code> checks the proof is about exactly that file. It exits non-zero on anything but <code>proven</code>, so it is a CI gate.</p>
+<h2 id="calibration">Certify the analyst's threshold<a class="anchor" href="#calibration" aria-hidden="true" tabindex="-1">#</a></h2>
+<pre><code>aertun analyst calibrate --key signing.key --public-key proof-key.json --out calibration.json \
+    --epsilon 0.05 --delta 0.05
+aertun analyst triage --calibration calibration.json --calibration-key proof-key.json</code></pre>
+<p>The findings verified people have ruled are put to the configured model, and the lowest threshold is fitted at which closing suggestions on findings people ruled real stay under <code>--epsilon</code> with confidence one minus <code>--delta</code> — an exact Clopper–Pearson bound, corrected for every threshold examined. The certificate names the model, the adapter and the prompt template by digest, and expires. Triage gates on it only when it verifies and fits; one that does not, and any answer not scored on the channel it was fitted on, goes to a person rather than back to the declared threshold.</p>
+<h2 id="vendor-verdicts">Score another vendor's AI<a class="anchor" href="#vendor-verdicts" aria-hidden="true" tabindex="-1">#</a></h2>
+<pre><code>aertun verdict import charlotte.csv --source charlotte
+aertun verdict prove --source charlotte --since 2026-10-01 --tolerance 0.01 \
+    --key signing.key --public-key proof-key.json --out charlotte.proof.json</code></pre>
+<p>The export carries the columns <code>alert</code>, <code>verdict</code> and <code>at</code>, and optionally <code>confidence</code>, <code>disposition</code>, <code>disposition_at</code> and <code>source</code>; a file with any other column, such as the product's reasoning, is refused whole. Each verdict is joined to the decision a verified person made on the finding that alert raised here — the source's mapping names the path its alert id is at as <code>alert</code> — and only verdicts given before the decision count. The claim is about false closures, alerts the product closed that a person found real, against a tolerance you declare first: <code>refuted</code> when the exact lower bound is over it, naming the alerts; <code>proven</code> when the upper bound is at or under it on at least 30 closures; <code>inconclusive</code> between. The rate is over the closures somebody decided, which are not a random sample, so the proof states that coverage, and how many verdicts were delivered here before the decision rather than resting on the product's own clock.</p>
+<h2 id="kept">Kept proofs, and the Proofs screen<a class="anchor" href="#kept" aria-hidden="true" tabindex="-1">#</a></h2>
+<pre><code>aertun proof keep rule.proof.json --public-key proof-key.json
+aertun proof list [--kind detection|calibration|verdicts]
+aertun proof show ID</code></pre>
+<p><code>verdict prove</code> and <code>analyst calibrate</code> keep the proofs they make; a proof made elsewhere — in CI, on another deployment — is kept with <code>proof keep</code>, or from the <strong>Proofs</strong> screen under <strong>Proving ground</strong>, only after it verifies against the key handed in with it. The key is kept beside it by fingerprint: verifying says the key signed it, and whether that key is one to believe is yours to judge. A kept proof is checked again every time it is read, so one edited afterwards is listed as no longer verifying rather than as what it now says.</p>
+<p>Listing and reading are what the agent interface offers, as <code>list_proofs</code> and <code>read_proof</code>, every value labelled with whether somebody outside Aertun could have written it. A detection proof's rule name is the submitter's, perhaps the model under test, so the screen marks it untrusted where the agent interface labels it. Keeping a proof is a change, and no agent may make one.</p>
 <h2 id="format">What a proof is<a class="anchor" href="#format" aria-hidden="true" tabindex="-1">#</a></h2>
 <p>An <a href="https://in-toto.io/Statement/v1">in-toto Statement</a> in a <a href="https://github.com/secure-systems-lab/dsse">DSSE envelope</a>: the subject is the rule file by digest; the predicate (<code>https://aertun.github.io/proof/detection/v1</code>) names the claim in words, the verifier and its version, every material it read by digest, each check, and the verdict. It is signed twice, Ed25519 and ML-DSA-65, the second in the context <code>aertun/proof/v1</code>. The Ed25519 half is plain DSSE, so in-toto and Sigstore tooling check it with no help from Aertun. The signing key file must be readable by its owner alone.</p>
   </div>
   <footer class="guide-foot">
-    <p class="updated">Updated 2026-11-06 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/proofs.html">Edit this page on GitHub</a></p>
+    <p class="updated">Updated 2026-11-10 · <a href="https://github.com/aertun/aertun.github.io/blob/main/src/pages/proofs.html">Edit this page on GitHub</a></p>
     <nav class="pager" aria-label="Previous and next guides">
       <a class="pager-prev" href="/concepts/" rel="prev"><span class="pager-dir"><svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m313-440 196 196q12 12 11.5 28T508-188q-12 11-28 11.5T452-188L188-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l264-264q11-11 27.5-11t28.5 11q12 12 12 28.5T508-715L313-520h447q17 0 28.5 11.5T800-480q0 17-11.5 28.5T760-440H313Z"/></svg>Previous</span><span class="pager-title">Glossary</span></a>
       <a class="pager-next" href="/windtunnel/" rel="next"><span class="pager-dir">Next<svg class="icon" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z"/></svg></span><span class="pager-title">The wind tunnel: attacks on AI agents, replayed</span></a>
@@ -171,6 +187,9 @@ aertun proof detection --rule rule.json --corpus corpus.jsonl \
     <li><a href="#verdicts">Three verdicts</a></li>
     <li><a href="#detection">Prove a detection rule</a></li>
     <li><a href="#verify">Verify one</a></li>
+    <li><a href="#calibration">Certify the analyst&#39;s threshold</a></li>
+    <li><a href="#vendor-verdicts">Score another vendor&#39;s AI</a></li>
+    <li><a href="#kept">Kept proofs, and the Proofs screen</a></li>
     <li><a href="#format">What a proof is</a></li>
   </ul>
 </aside>

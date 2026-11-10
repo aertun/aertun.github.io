@@ -20,6 +20,7 @@ licence
 mcp
 passkeys
 people
+proofs
 roles
 security
 settings

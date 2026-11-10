@@ -12,7 +12,7 @@ aertun is one Go binary with no third-party dependencies, licensed under Apache-
 
 ## Proving AI work
 
-- [Proofs: AI work checked and signed](https://aertun.github.io/proofs/): Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.
+- [Proofs: AI work checked and signed](https://aertun.github.io/proofs/): Check detection rules, the AI analyst's threshold and other vendors' AI verdicts against evidence they did not write, and sign the verdict.
 - [The wind tunnel: attacks on AI agents, replayed](https://aertun.github.io/windtunnel/): Replay scripted malicious AI-agent sessions through a recorded stream, measure whether the detections caught them, and sign a scorecard anybody can verify.
 
 ## Operations

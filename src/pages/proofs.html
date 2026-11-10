@@ -2,10 +2,10 @@
 title: Proofs: AI work checked and signed
 short: Proofs
 seo: Aertun proofs: detection rules checked and signed
-description: Check a detection rule, usually one a model drafted, against a labelled corpus its author did not write, and sign the verdict as an in-toto DSSE proof.
+description: Check detection rules, the AI analyst's threshold and other vendors' AI verdicts against evidence they did not write, and sign the verdict.
 lead: A claim about security work, checked by a program against evidence its author did not write, and signed whatever the verdict.
 icon: fact_check
-updated: 2026-11-06
+updated: 2026-11-10
 -->
 <p>A model can draft a detection rule faster than anybody can check it. A proof is the check, made by a program rather than by the author, and written down so whoever receives the rule — a reviewer, CI, a customer — can rely on it without trusting whoever handed it over.</p>
 <h2 id="verdicts">Three verdicts</h2>
@@ -33,5 +33,21 @@ aertun proof detection --rule rule.json --corpus corpus.jsonl \
 <h2 id="verify">Verify one</h2>
 <pre><code>aertun proof verify --key proof-key.json --subject rule.json rule.proof.json</code></pre>
 <p>Both signatures must hold against a key you were handed, never one the document supplies; <code>--subject</code> checks the proof is about exactly that file. It exits non-zero on anything but <code>proven</code>, so it is a CI gate.</p>
+<h2 id="calibration">Certify the analyst's threshold</h2>
+<pre><code>aertun analyst calibrate --key signing.key --public-key proof-key.json --out calibration.json \
+    --epsilon 0.05 --delta 0.05
+aertun analyst triage --calibration calibration.json --calibration-key proof-key.json</code></pre>
+<p>The findings verified people have ruled are put to the configured model, and the lowest threshold is fitted at which closing suggestions on findings people ruled real stay under <code>--epsilon</code> with confidence one minus <code>--delta</code> — an exact Clopper–Pearson bound, corrected for every threshold examined. The certificate names the model, the adapter and the prompt template by digest, and expires. Triage gates on it only when it verifies and fits; one that does not, and any answer not scored on the channel it was fitted on, goes to a person rather than back to the declared threshold.</p>
+<h2 id="vendor-verdicts">Score another vendor's AI</h2>
+<pre><code>aertun verdict import charlotte.csv --source charlotte
+aertun verdict prove --source charlotte --since 2026-10-01 --tolerance 0.01 \
+    --key signing.key --public-key proof-key.json --out charlotte.proof.json</code></pre>
+<p>The export carries the columns <code>alert</code>, <code>verdict</code> and <code>at</code>, and optionally <code>confidence</code>, <code>disposition</code>, <code>disposition_at</code> and <code>source</code>; a file with any other column, such as the product's reasoning, is refused whole. Each verdict is joined to the decision a verified person made on the finding that alert raised here — the source's mapping names the path its alert id is at as <code>alert</code> — and only verdicts given before the decision count. The claim is about false closures, alerts the product closed that a person found real, against a tolerance you declare first: <code>refuted</code> when the exact lower bound is over it, naming the alerts; <code>proven</code> when the upper bound is at or under it on at least 30 closures; <code>inconclusive</code> between. The rate is over the closures somebody decided, which are not a random sample, so the proof states that coverage, and how many verdicts were delivered here before the decision rather than resting on the product's own clock.</p>
+<h2 id="kept">Kept proofs, and the Proofs screen</h2>
+<pre><code>aertun proof keep rule.proof.json --public-key proof-key.json
+aertun proof list [--kind detection|calibration|verdicts]
+aertun proof show ID</code></pre>
+<p><code>verdict prove</code> and <code>analyst calibrate</code> keep the proofs they make; a proof made elsewhere — in CI, on another deployment — is kept with <code>proof keep</code>, or from the <strong>Proofs</strong> screen under <strong>Proving ground</strong>, only after it verifies against the key handed in with it. The key is kept beside it by fingerprint: verifying says the key signed it, and whether that key is one to believe is yours to judge. A kept proof is checked again every time it is read, so one edited afterwards is listed as no longer verifying rather than as what it now says.</p>
+<p>Listing and reading are what the agent interface offers, as <code>list_proofs</code> and <code>read_proof</code>, every value labelled with whether somebody outside Aertun could have written it. A detection proof's rule name is the submitter's, perhaps the model under test, so the screen marks it untrusted where the agent interface labels it. Keeping a proof is a change, and no agent may make one.</p>
 <h2 id="format">What a proof is</h2>
 <p>An <a href="https://in-toto.io/Statement/v1">in-toto Statement</a> in a <a href="https://github.com/secure-systems-lab/dsse">DSSE envelope</a>: the subject is the rule file by digest; the predicate (<code>https://aertun.github.io/proof/detection/v1</code>) names the claim in words, the verifier and its version, every material it read by digest, each check, and the verdict. It is signed twice, Ed25519 and ML-DSA-65, the second in the context <code>aertun/proof/v1</code>. The Ed25519 half is plain DSSE, so in-toto and Sigstore tooling check it with no help from Aertun. The signing key file must be readable by its owner alone.</p>

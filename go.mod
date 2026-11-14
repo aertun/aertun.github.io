@@ -1,3 +1,3 @@
-module github.com/vaigil/vaigil.github.io
+module github.com/aertun/aertun.github.io
 
 go 1.27

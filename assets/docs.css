@@ -1,15 +1,15 @@
-/* The Vaigil manual, in the console's own design language: Material 3
+/* The Aertun manual, in the console's own design language: Material 3
  * Expressive, written by hand as tokens and CSS.
  *
  * The tokens below are the console's (internal/admin/assets/style.css in the
- * Vaigil repository): Google's tonal palettes, primary at tone 30 so every
+ * Aertun repository): Google's tonal palettes, primary at tone 30 so every
  * text pairing clears 7:1, the M3 shape scale with the Expressive steps, and
  * the Expressive springs sampled into linear(). A reader moving from a screen
  * to its Help page should not feel they have left the product. */
 
 @font-face {
-  font-family: "Vaigil UI";
-  src: url("/assets/fonts/vaigil-ui.woff2") format("woff2");
+  font-family: "Aertun UI";
+  src: url("/assets/fonts/aertun-ui.woff2") format("woff2");
   font-weight: 300 700;
   font-display: swap;
 }
@@ -61,7 +61,7 @@
   --shape-xs: 4px; --shape-sm: 8px; --shape-md: 12px; --shape-lg: 16px;
   --shape-lg-inc: 20px; --shape-xl: 28px; --shape-xl-inc: 32px; --shape-xxl: 48px; --shape-full: 999px;
 
-  --font: "Vaigil UI", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Aertun UI", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas, monospace;
   --display-lg: 3.5625rem/1.12 var(--font);
   --display-md: 2.8125rem/1.16 var(--font);
@@ -164,10 +164,17 @@ code { font-size: 0.9em; overflow-wrap: anywhere; }
   display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; padding: 0 .6rem;
   border-radius: var(--shape-full); color: var(--on-surface); text-decoration: none;
 }
-.brand .mark { width: 28px; height: 28px; }
-.mark-first { fill: light-dark(#0b57d0, #a8c7fa); }
-.mark-second { fill: light-dark(#7b4dff, #c8b6ff); }
-.brand-name { font: var(--title-lg); font-weight: 800; letter-spacing: -.01em; }
+/* The wordmark: the mark is the A of the name, and "ertun" follows it on the
+   same baseline — the brand's own drawing, as the console and the README
+   show it. The letters are this typeface at weight 500, the mark's box is
+   their em, and its feet stand .039em above the box's foot. */
+.lockup { display: inline-flex; align-items: baseline; gap: 0; white-space: nowrap;
+  font: var(--title-lg); font-size: 1.5rem; font-weight: 500; letter-spacing: 0;
+  color: light-dark(#0A1F44, #E8EEF8); }
+.lockup .mark { width: 1em; height: 1em; flex: none; margin-bottom: -.039em; }
+.lockup .lockup-rest { margin-left: -.01em; }
+.mark-first { fill: light-dark(#0A1F44, #E8EEF8); }
+.mark-second { fill: url(#aertun-stream) light-dark(#0096B4, #1DE9B6); }
 .brand-sub { font: var(--title-md); color: var(--on-surface-variant); }
 .bar-links { margin-left: auto; display: flex; align-items: center; }
 .menu-toggle { display: none; }

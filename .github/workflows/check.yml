@@ -1,6 +1,6 @@
 name: check
 
-# The manual is the target of every Help link in the Vaigil console, so the
+# The manual is the target of every Help link in the Aertun console, so the
 # thing worth checking on every push is that each guide the application links
 # to exists, that no link inside the manual lands nowhere, that every picture is
 # in the repository, and that the committed pages are what src/ builds.
@@ -22,12 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Pinned by commit, not by tag: a tag is a mutable pointer in somebody
-      # else's repository. The same commits as Vaigil's own workflows.
+      # else's repository. The same commits as Aertun's own workflows.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version-file: go.mod
-      - name: Every guide the Vaigil console links to is a page here
+      - name: Every guide the Aertun console links to is a page here
         run: go run ./gen -check
 
   links:
